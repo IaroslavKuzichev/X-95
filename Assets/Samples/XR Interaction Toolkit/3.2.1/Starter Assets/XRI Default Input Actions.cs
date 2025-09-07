@@ -113,7 +113,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Is Tracked"",
                     ""type"": ""Button"",
                     ""id"": ""6bb4e248-e42b-47c3-b66c-79566508ca74"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -2484,7 +2484,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Teleport Mode Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""d587b60c-39a0-4365-8075-477ce484ba0f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -2520,7 +2520,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Grab Move"",
                     ""type"": ""Button"",
                     ""id"": ""cfb29d37-3db0-4e5d-a73b-7d48a19e279e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -2539,7 +2539,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""62690862-4688-4010-975b-b3d9c6062157"",
-                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": ""Sector(directions=1)"",
                     ""processors"": """",
                     ""groups"": """",
@@ -2561,8 +2561,8 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""d6c08c3d-3d41-4695-994d-1ac9016a5a9e"",
-                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
-                    ""interactions"": ""Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": ""Sector(directions=12,sweepBehavior=1),Sector(sweepBehavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Turn"",
@@ -2572,7 +2572,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                 {
                     ""name"": """",
                     ""id"": ""022046aa-be71-4288-859d-6dd42844f6e6"",
-                    ""path"": ""<XRController>{RightHand}/{Primary2DAxis}"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
                     ""groups"": """",
