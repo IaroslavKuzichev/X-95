@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Boost",
+                    "name": "Torpedo",
                     "type": "Button",
                     "id": "9a3e03d3-9718-4d14-8ece-2cc584683a9c",
                     "expectedControlType": "",
@@ -88,11 +88,11 @@
                 {
                     "name": "",
                     "id": "39b6e2c6-a935-44a8-b1af-5a23d988ecf4",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Boost",
+                    "action": "Torpedo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -119,7 +119,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Boost"",
+                    ""name"": ""Torpedo"",
                     ""type"": ""Button"",
                     ""id"": ""9a3e03d3-9718-4d14-8ece-2cc584683a9c"",
                     ""expectedControlType"": """",
@@ -174,11 +174,11 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""39b6e2c6-a935-44a8-b1af-5a23d988ecf4"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Boost"",
+                    ""action"": ""Torpedo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -203,7 +203,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Move = m_Controller.FindAction("Move", throwIfNotFound: true);
         m_Controller_FireLeftCannon = m_Controller.FindAction("FireLeftCannon", throwIfNotFound: true);
         m_Controller_FireRightCannon = m_Controller.FindAction("FireRightCannon", throwIfNotFound: true);
-        m_Controller_Boost = m_Controller.FindAction("Boost", throwIfNotFound: true);
+        m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
     }
 
@@ -288,7 +288,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Move;
     private readonly InputAction m_Controller_FireLeftCannon;
     private readonly InputAction m_Controller_FireRightCannon;
-    private readonly InputAction m_Controller_Boost;
+    private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
@@ -314,9 +314,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @FireRightCannon => m_Wrapper.m_Controller_FireRightCannon;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/Boost".
+        /// Provides access to the underlying input action "Controller/Torpedo".
         /// </summary>
-        public InputAction @Boost => m_Wrapper.m_Controller_Boost;
+        public InputAction @Torpedo => m_Wrapper.m_Controller_Torpedo;
         /// <summary>
         /// Provides access to the underlying input action "Controller/Vertical".
         /// </summary>
@@ -356,9 +356,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @FireRightCannon.started += instance.OnFireRightCannon;
             @FireRightCannon.performed += instance.OnFireRightCannon;
             @FireRightCannon.canceled += instance.OnFireRightCannon;
-            @Boost.started += instance.OnBoost;
-            @Boost.performed += instance.OnBoost;
-            @Boost.canceled += instance.OnBoost;
+            @Torpedo.started += instance.OnTorpedo;
+            @Torpedo.performed += instance.OnTorpedo;
+            @Torpedo.canceled += instance.OnTorpedo;
             @Vertical.started += instance.OnVertical;
             @Vertical.performed += instance.OnVertical;
             @Vertical.canceled += instance.OnVertical;
@@ -382,9 +382,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @FireRightCannon.started -= instance.OnFireRightCannon;
             @FireRightCannon.performed -= instance.OnFireRightCannon;
             @FireRightCannon.canceled -= instance.OnFireRightCannon;
-            @Boost.started -= instance.OnBoost;
-            @Boost.performed -= instance.OnBoost;
-            @Boost.canceled -= instance.OnBoost;
+            @Torpedo.started -= instance.OnTorpedo;
+            @Torpedo.performed -= instance.OnTorpedo;
+            @Torpedo.canceled -= instance.OnTorpedo;
             @Vertical.started -= instance.OnVertical;
             @Vertical.performed -= instance.OnVertical;
             @Vertical.canceled -= instance.OnVertical;
@@ -450,12 +450,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFireRightCannon(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Boost" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Torpedo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBoost(InputAction.CallbackContext context);
+        void OnTorpedo(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Vertical" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
