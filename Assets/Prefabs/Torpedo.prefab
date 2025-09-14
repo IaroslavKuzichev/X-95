@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1541211619526038236}
   - component: {fileID: 4706482455272186279}
   - component: {fileID: 6456891791368121710}
+  - component: {fileID: 2545097523361225726}
   m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
@@ -103,7 +104,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -136,3 +137,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2545097523361225726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802274395242065924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1754417c2f1094d4d81d2101ed8f9ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

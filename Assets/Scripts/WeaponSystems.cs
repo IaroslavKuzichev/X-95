@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    [SerializeField] private Transform _leftFirePoint;
-    [SerializeField] private Transform _rightFirePoint;
+    [SerializeField] private Transform _leftLaserPoint;
+    [SerializeField] private Transform _rightLaserPoint;
     [SerializeField] private Transform _torpedoPoint;
     [SerializeField] private GameObject _torpedoPrefab;
     [SerializeField] private GameObject _laserPrefab;
@@ -26,32 +26,24 @@ public class Weapons : MonoBehaviour
     }
     private void FireLeft()
     {
-        StartCoroutine(FireLaser(_leftFirePoint));
+        StartCoroutine(Fire(_laserPrefab, _leftLaserPoint));
     }
     private void FireRight()
     {
-        StartCoroutine(FireLaser(_rightFirePoint));
+        StartCoroutine(Fire(_laserPrefab, _rightLaserPoint));
     }
     private void Torpedo()
     {
-        StartCoroutine(FireTorpedo());
-    }
-    private IEnumerator FireLaser(Transform firePoint)
-    {
-        GameObject Laser = Instantiate(_laserPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody rb = Laser.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.up * 500f, ForceMode.Force);
-        yield return new WaitForSecondsRealtime(1);
-        Destroy(Laser);
-    }
-    private IEnumerator FireTorpedo()
-    {
-        GameObject Torpedo = Instantiate(_torpedoPrefab, _torpedoPoint.position, _torpedoPoint.rotation);
-        Rigidbody rb = Torpedo.GetComponent<Rigidbody>();
-        rb.AddForce(_torpedoPoint.forward * 500f, ForceMode.Force);
         _input.Controller.Torpedo.Disable();
-        yield return new WaitForSecondsRealtime(2);
-        Destroy(Torpedo);
+        StartCoroutine(Fire(_torpedoPrefab, _torpedoPoint));
         _input.Controller.Torpedo.Enable();
+    }
+    private IEnumerator Fire(GameObject proj, Transform firePoint)
+    {
+        GameObject Projectile = Instantiate(proj, firePoint.position, firePoint.rotation);
+        Rigidbody rb = Projectile.GetComponent<Rigidbody>();
+        rb.AddForce(firePoint.forward * 500f, ForceMode.Force);
+        yield return new WaitForSecondsRealtime(2);
+        Destroy(Projectile);
     }
 }
