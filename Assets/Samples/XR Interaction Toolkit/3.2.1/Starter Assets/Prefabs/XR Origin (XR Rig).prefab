@@ -887,6 +887,7 @@ GameObject:
   - component: {fileID: 5033801203051696737}
   - component: {fileID: 7607313112397492811}
   - component: {fileID: 533848073959827002}
+  - component: {fileID: 4787681445830987335}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -1054,6 +1055,20 @@ MonoBehaviour:
   _torpedoPoint: {fileID: 5633608832070675943}
   _torpedoPrefab: {fileID: 5802274395242065924, guid: 3317a5948d1c02547abc9927e85ee0dd, type: 3}
   _laserPrefab: {fileID: 5608928126281194156, guid: 37ca305f0e1b7724ab6f2d3ed326745e, type: 3}
+--- !u!114 &4787681445830987335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717954561962503725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38e4317c1f3429ba667e0e4e59637f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddress: 127.0.0.1
+  port: 6065
 --- !u!1 &1787516059220952802
 GameObject:
   m_ObjectHideFlags: 0
