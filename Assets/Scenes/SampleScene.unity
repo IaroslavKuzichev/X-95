@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 63783922}
   - component: {fileID: 63783921}
   - component: {fileID: 63783920}
+  - component: {fileID: 63783924}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Asteroid
@@ -153,7 +154,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -227,6 +228,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63783924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63783919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b6566c9da09374aa67f4badcc4441b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &375431678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,6 +430,7 @@ GameObject:
   - component: {fileID: 473710222}
   - component: {fileID: 473710221}
   - component: {fileID: 473710220}
+  - component: {fileID: 473710224}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Asteroid
@@ -439,7 +453,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -513,6 +527,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473710224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473710219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b6566c9da09374aa67f4badcc4441b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +755,7 @@ GameObject:
   - component: {fileID: 1930309178}
   - component: {fileID: 1930309177}
   - component: {fileID: 1930309176}
+  - component: {fileID: 1930309180}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Asteroid
@@ -751,7 +778,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -825,6 +852,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930309180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930309175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b6566c9da09374aa67f4badcc4441b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

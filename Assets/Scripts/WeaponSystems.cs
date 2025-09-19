@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Weapons : MonoBehaviour
+public class WeaponSystems: MonoBehaviour
 {
     [SerializeField] private Transform _leftLaserPoint;
     [SerializeField] private Transform _rightLaserPoint;

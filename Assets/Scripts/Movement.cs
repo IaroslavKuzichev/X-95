@@ -25,6 +25,6 @@ public class Movement : MonoBehaviour
         _playerVertical = _input.Controller.Vertical.ReadValue<Vector2>();
         Vector3 _movement = new Vector3(_playerMove.x, _playerVertical.y * 0.5f, _playerMove.y);
         transform.position += _movement * _playerSpeed * Time.deltaTime * 5f;
-        transform.rotation = Quaternion.Euler((_playerMove.y * 2f + _playerVertical.y), 0, -_playerMove.x * 2f);
+        transform.rotation = Quaternion.Euler((_playerMove.y * 3f + _playerVertical.y * 1.5f), 0, -_playerMove.x * 3f);
     }
 }
