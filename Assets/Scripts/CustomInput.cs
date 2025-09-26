@@ -101,18 +101,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""FireLeftCannon"",
+                    ""name"": ""Laser"",
                     ""type"": ""Button"",
                     ""id"": ""27a7e4a8-0bb9-4346-a57e-499ce489fc56"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""FireRightCannon"",
-                    ""type"": ""Button"",
-                    ""id"": ""a48a7a7f-cb31-45f7-a459-1e0fb059e8c1"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -135,6 +126,24 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwitchFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca7d8abf-5518-4180-a721-2ce39187876b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateLaser"",
+                    ""type"": ""Value"",
+                    ""id"": ""283f79e5-7c93-4e3a-9f8a-052477e8939a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -152,29 +161,18 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4fdd9a60-d72d-49f9-a925-85c1009f8dd7"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FireLeftCannon"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4acd5c87-9449-43b7-beb5-f0b41a2dc478"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FireRightCannon"",
+                    ""action"": ""Laser"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""39b6e2c6-a935-44a8-b1af-5a23d988ecf4"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -192,6 +190,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99b73602-0625-4a25-87f4-9d64b5745ab8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43a0c922-9a75-4f81-87e6-7fc7e64c690f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": ""Sector(directions=12)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -201,10 +221,11 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Move = m_Controller.FindAction("Move", throwIfNotFound: true);
-        m_Controller_FireLeftCannon = m_Controller.FindAction("FireLeftCannon", throwIfNotFound: true);
-        m_Controller_FireRightCannon = m_Controller.FindAction("FireRightCannon", throwIfNotFound: true);
+        m_Controller_Laser = m_Controller.FindAction("Laser", throwIfNotFound: true);
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
+        m_Controller_SwitchFire = m_Controller.FindAction("SwitchFire", throwIfNotFound: true);
+        m_Controller_RotateLaser = m_Controller.FindAction("RotateLaser", throwIfNotFound: true);
     }
 
     ~@CustomInput()
@@ -286,10 +307,11 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Controller;
     private List<IControllerActions> m_ControllerActionsCallbackInterfaces = new List<IControllerActions>();
     private readonly InputAction m_Controller_Move;
-    private readonly InputAction m_Controller_FireLeftCannon;
-    private readonly InputAction m_Controller_FireRightCannon;
+    private readonly InputAction m_Controller_Laser;
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
+    private readonly InputAction m_Controller_SwitchFire;
+    private readonly InputAction m_Controller_RotateLaser;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -306,13 +328,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Controller_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/FireLeftCannon".
+        /// Provides access to the underlying input action "Controller/Laser".
         /// </summary>
-        public InputAction @FireLeftCannon => m_Wrapper.m_Controller_FireLeftCannon;
-        /// <summary>
-        /// Provides access to the underlying input action "Controller/FireRightCannon".
-        /// </summary>
-        public InputAction @FireRightCannon => m_Wrapper.m_Controller_FireRightCannon;
+        public InputAction @Laser => m_Wrapper.m_Controller_Laser;
         /// <summary>
         /// Provides access to the underlying input action "Controller/Torpedo".
         /// </summary>
@@ -321,6 +339,14 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/Vertical".
         /// </summary>
         public InputAction @Vertical => m_Wrapper.m_Controller_Vertical;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/SwitchFire".
+        /// </summary>
+        public InputAction @SwitchFire => m_Wrapper.m_Controller_SwitchFire;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/RotateLaser".
+        /// </summary>
+        public InputAction @RotateLaser => m_Wrapper.m_Controller_RotateLaser;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -350,18 +376,21 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @FireLeftCannon.started += instance.OnFireLeftCannon;
-            @FireLeftCannon.performed += instance.OnFireLeftCannon;
-            @FireLeftCannon.canceled += instance.OnFireLeftCannon;
-            @FireRightCannon.started += instance.OnFireRightCannon;
-            @FireRightCannon.performed += instance.OnFireRightCannon;
-            @FireRightCannon.canceled += instance.OnFireRightCannon;
+            @Laser.started += instance.OnLaser;
+            @Laser.performed += instance.OnLaser;
+            @Laser.canceled += instance.OnLaser;
             @Torpedo.started += instance.OnTorpedo;
             @Torpedo.performed += instance.OnTorpedo;
             @Torpedo.canceled += instance.OnTorpedo;
             @Vertical.started += instance.OnVertical;
             @Vertical.performed += instance.OnVertical;
             @Vertical.canceled += instance.OnVertical;
+            @SwitchFire.started += instance.OnSwitchFire;
+            @SwitchFire.performed += instance.OnSwitchFire;
+            @SwitchFire.canceled += instance.OnSwitchFire;
+            @RotateLaser.started += instance.OnRotateLaser;
+            @RotateLaser.performed += instance.OnRotateLaser;
+            @RotateLaser.canceled += instance.OnRotateLaser;
         }
 
         /// <summary>
@@ -376,18 +405,21 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @FireLeftCannon.started -= instance.OnFireLeftCannon;
-            @FireLeftCannon.performed -= instance.OnFireLeftCannon;
-            @FireLeftCannon.canceled -= instance.OnFireLeftCannon;
-            @FireRightCannon.started -= instance.OnFireRightCannon;
-            @FireRightCannon.performed -= instance.OnFireRightCannon;
-            @FireRightCannon.canceled -= instance.OnFireRightCannon;
+            @Laser.started -= instance.OnLaser;
+            @Laser.performed -= instance.OnLaser;
+            @Laser.canceled -= instance.OnLaser;
             @Torpedo.started -= instance.OnTorpedo;
             @Torpedo.performed -= instance.OnTorpedo;
             @Torpedo.canceled -= instance.OnTorpedo;
             @Vertical.started -= instance.OnVertical;
             @Vertical.performed -= instance.OnVertical;
             @Vertical.canceled -= instance.OnVertical;
+            @SwitchFire.started -= instance.OnSwitchFire;
+            @SwitchFire.performed -= instance.OnSwitchFire;
+            @SwitchFire.canceled -= instance.OnSwitchFire;
+            @RotateLaser.started -= instance.OnRotateLaser;
+            @RotateLaser.performed -= instance.OnRotateLaser;
+            @RotateLaser.canceled -= instance.OnRotateLaser;
         }
 
         /// <summary>
@@ -436,19 +468,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "FireLeftCannon" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Laser" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFireLeftCannon(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "FireRightCannon" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFireRightCannon(InputAction.CallbackContext context);
+        void OnLaser(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Torpedo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -463,5 +488,19 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnVertical(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchFire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchFire(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RotateLaser" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRotateLaser(InputAction.CallbackContext context);
     }
 }

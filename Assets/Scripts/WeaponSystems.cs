@@ -1,20 +1,45 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponSystems: MonoBehaviour
 {
-    [SerializeField] private Transform _leftLaserPoint;
-    [SerializeField] private Transform _rightLaserPoint;
-    [SerializeField] private Transform _torpedoPoint;
+    [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _torpedoPrefab;
     [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private float _fireRate;
     private CustomInput _input;
+    private float _fireDelay;
+    private int _torpedoCount;
+    private int _overheat;
     private void Awake()
     {
         _input = new CustomInput();
-        _input.Controller.FireLeftCannon.performed += ctx => FireLeft();
-        _input.Controller.FireRightCannon.performed += ctx => FireRight();
         _input.Controller.Torpedo.performed += ctx => Torpedo();
+        _input.Controller.SwitchFire.performed += ctx => SwitchFire();
+        _fireDelay = 1 / _fireRate;
+        _torpedoCount = 5;
+    }
+    private void Update()
+    {
+        if (_input.Controller.Laser.IsPressed())
+        {
+            if (_fireDelay <= 0f)
+            {
+                StartCoroutine(Fire(_laserPrefab));
+                _fireDelay = 1 / _fireRate;
+            }
+            else
+            {
+                _fireDelay -= Time.deltaTime;
+            }
+            Gamepad.current.SetMotorSpeeds(0.75f, 0f);
+        }
+        else
+        {
+            _fireDelay = 0f;
+            InputSystem.ResetHaptics();
+        }
     }
     private void OnEnable()
     {
@@ -24,26 +49,44 @@ public class WeaponSystems: MonoBehaviour
     {
         _input.Disable();
     }
-    private void FireLeft()
-    {
-        StartCoroutine(Fire(_laserPrefab, _leftLaserPoint));
-    }
-    private void FireRight()
-    {
-        StartCoroutine(Fire(_laserPrefab, _rightLaserPoint));
-    }
     private void Torpedo()
     {
-        _input.Controller.Torpedo.Disable();
-        StartCoroutine(Fire(_torpedoPrefab, _torpedoPoint));
-        _input.Controller.Torpedo.Enable();
+        if (_torpedoCount > 0)
+        {
+            StartCoroutine(Fire(_torpedoPrefab));
+            _torpedoCount--;
+        }
     }
-    private IEnumerator Fire(GameObject proj, Transform firePoint)
+    private void SwitchFire()
     {
-        GameObject Projectile = Instantiate(proj, firePoint.position, firePoint.rotation);
-        Rigidbody rb = Projectile.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * 500f, ForceMode.Force);
-        yield return new WaitForSecondsRealtime(2);
-        Destroy(Projectile);
+        if (_fireRate == 0)
+        {
+            _fireRate = 10;
+        }
+        else
+        {
+            _fireRate = 0;
+        }
+        Debug.Log($"Fire rate: {_fireRate}");
+    }
+    private IEnumerator Fire(GameObject proj)
+    {
+        if (_overheat < 100)
+        {
+            GameObject Projectile = Instantiate(proj, _firePoint.position, _firePoint.rotation);
+            Rigidbody rb = Projectile.GetComponent<Rigidbody>();
+            rb.AddForce(_firePoint.forward * 1000f, ForceMode.Force);
+            _overheat++;
+            yield return new WaitForSecondsRealtime(2);
+            Destroy(Projectile);
+        }
+        else
+        {
+            _input.Controller.Laser.Disable();
+            Debug.Log("Weapon overheat");
+            yield return new WaitForSecondsRealtime(5);
+            _input.Controller.Laser.Enable();
+            _overheat = 0;
+        }
     }
 }

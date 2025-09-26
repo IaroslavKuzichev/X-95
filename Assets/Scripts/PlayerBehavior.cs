@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    private int _playerHP;
-    public int PlayerHP
+    static private int _playerHP;
+    static public int PlayerHP
     {
         get => _playerHP;
         set
@@ -13,8 +13,8 @@ public class PlayerBehavior : MonoBehaviour
             else _playerHP = value;
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void Awake()
     {
-        Debug.Log("Негр");
+        PlayerHP = 100;
     }
 }

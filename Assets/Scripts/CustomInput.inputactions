@@ -15,18 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FireLeftCannon",
+                    "name": "Laser",
                     "type": "Button",
                     "id": "27a7e4a8-0bb9-4346-a57e-499ce489fc56",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FireRightCannon",
-                    "type": "Button",
-                    "id": "a48a7a7f-cb31-45f7-a459-1e0fb059e8c1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -49,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SwitchFire",
+                    "type": "Button",
+                    "id": "ca7d8abf-5518-4180-a721-2ce39187876b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateLaser",
+                    "type": "Value",
+                    "id": "283f79e5-7c93-4e3a-9f8a-052477e8939a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -66,29 +75,18 @@
                 {
                     "name": "",
                     "id": "4fdd9a60-d72d-49f9-a925-85c1009f8dd7",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FireLeftCannon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4acd5c87-9449-43b7-beb5-f0b41a2dc478",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FireRightCannon",
+                    "action": "Laser",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "39b6e2c6-a935-44a8-b1af-5a23d988ecf4",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -104,6 +102,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99b73602-0625-4a25-87f4-9d64b5745ab8",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43a0c922-9a75-4f81-87e6-7fc7e64c690f",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "Sector(directions=12)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateLaser",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
