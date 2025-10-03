@@ -135,15 +135,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RotateLaser"",
-                    ""type"": ""Value"",
-                    ""id"": ""283f79e5-7c93-4e3a-9f8a-052477e8939a"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -159,9 +150,75 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""668ccb84-9c05-4f02-a18e-21b25894f97d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3f2b62b0-5b0c-4914-9dce-3ed1ea3c25d3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""63b245fe-e2b1-4bf4-a32d-1a3b04d6a934"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a1ec23f3-cd85-47dd-8c7b-1b7b887e834b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5ff9083d-a35a-4029-b3ad-fe240acc47d8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""4fdd9a60-d72d-49f9-a925-85c1009f8dd7"",
                     ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Laser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b016333-8430-4aee-8d52-706039c1582b"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -182,6 +239,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bffc7551-c2e6-4d24-9606-588b6c639e9a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Torpedo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""11d25291-d5e9-43ae-9b08-357a5f577431"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": ""Sector(directions=3,sweepBehavior=1)"",
@@ -190,6 +258,39 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""2f61b91d-c237-4a0f-8d64-4e1a82bf6572"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""59fcdaeb-c88e-42ea-8798-bedeacec5201"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2e8c9629-10b8-48cc-98f8-0b9324b12264"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -204,12 +305,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""43a0c922-9a75-4f81-87e6-7fc7e64c690f"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": ""Sector(directions=12)"",
+                    ""id"": ""dc2b97d4-8deb-4f42-9067-189623653b44"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RotateLaser"",
+                    ""action"": ""SwitchFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -225,7 +326,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
         m_Controller_SwitchFire = m_Controller.FindAction("SwitchFire", throwIfNotFound: true);
-        m_Controller_RotateLaser = m_Controller.FindAction("RotateLaser", throwIfNotFound: true);
     }
 
     ~@CustomInput()
@@ -311,7 +411,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
     private readonly InputAction m_Controller_SwitchFire;
-    private readonly InputAction m_Controller_RotateLaser;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -343,10 +442,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/SwitchFire".
         /// </summary>
         public InputAction @SwitchFire => m_Wrapper.m_Controller_SwitchFire;
-        /// <summary>
-        /// Provides access to the underlying input action "Controller/RotateLaser".
-        /// </summary>
-        public InputAction @RotateLaser => m_Wrapper.m_Controller_RotateLaser;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -388,9 +483,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started += instance.OnSwitchFire;
             @SwitchFire.performed += instance.OnSwitchFire;
             @SwitchFire.canceled += instance.OnSwitchFire;
-            @RotateLaser.started += instance.OnRotateLaser;
-            @RotateLaser.performed += instance.OnRotateLaser;
-            @RotateLaser.canceled += instance.OnRotateLaser;
         }
 
         /// <summary>
@@ -417,9 +509,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started -= instance.OnSwitchFire;
             @SwitchFire.performed -= instance.OnSwitchFire;
             @SwitchFire.canceled -= instance.OnSwitchFire;
-            @RotateLaser.started -= instance.OnRotateLaser;
-            @RotateLaser.performed -= instance.OnRotateLaser;
-            @RotateLaser.canceled -= instance.OnRotateLaser;
         }
 
         /// <summary>
@@ -495,12 +584,5 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchFire(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "RotateLaser" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRotateLaser(InputAction.CallbackContext context);
     }
 }

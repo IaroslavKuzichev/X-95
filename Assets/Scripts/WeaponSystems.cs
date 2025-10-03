@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +13,26 @@ public class WeaponSystems: MonoBehaviour
     private CustomInput _input;
     private float _fireDelay;
     private int _torpedoCount;
-    private int _overheat;
+    private float _overheat;
+    private float Overheat
+    {
+        get => _overheat;
+        set
+        {
+            if (value > 100)
+            {
+                _overheat = 100;
+            }
+            else if (value < 0)
+            {
+                _overheat = 0;
+            }
+            else
+            {
+                _overheat = value;
+            }
+        }
+    }
     private void Awake()
     {
         _input = new CustomInput();
@@ -19,11 +40,13 @@ public class WeaponSystems: MonoBehaviour
         _input.Controller.SwitchFire.performed += ctx => SwitchFire();
         _fireDelay = 1 / _fireRate;
         _torpedoCount = 5;
+        Overheat = 0;
     }
     private void Update()
     {
         if (_input.Controller.Laser.IsPressed())
         {
+            Overheat += 10f * Time.deltaTime;
             if (_fireDelay <= 0f)
             {
                 StartCoroutine(Fire(_laserPrefab));
@@ -33,13 +56,15 @@ public class WeaponSystems: MonoBehaviour
             {
                 _fireDelay -= Time.deltaTime;
             }
-            Gamepad.current.SetMotorSpeeds(0.75f, 0f);
+            // Gamepad.current.SetMotorSpeeds(0.75f, 0f);
         }
         else
         {
+            Overheat -= 10f * Time.deltaTime;
             _fireDelay = 0f;
             InputSystem.ResetHaptics();
         }
+        Debug.Log(_overheat);
     }
     private void OnEnable()
     {
@@ -71,12 +96,11 @@ public class WeaponSystems: MonoBehaviour
     }
     private IEnumerator Fire(GameObject proj)
     {
-        if (_overheat < 100)
+        if (_overheat < 100f)
         {
             GameObject Projectile = Instantiate(proj, _firePoint.position, _firePoint.rotation);
             Rigidbody rb = Projectile.GetComponent<Rigidbody>();
-            rb.AddForce(_firePoint.forward * 1000f, ForceMode.Force);
-            _overheat++;
+            rb.AddForce(_firePoint.up * 1000f, ForceMode.Force);
             yield return new WaitForSecondsRealtime(2);
             Destroy(Projectile);
         }
@@ -86,7 +110,7 @@ public class WeaponSystems: MonoBehaviour
             Debug.Log("Weapon overheat");
             yield return new WaitForSecondsRealtime(5);
             _input.Controller.Laser.Enable();
-            _overheat = 0;
+            _overheat = 0f;
         }
     }
 }
