@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class AsteroidCollision : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        PlayerBehavior.PlayerHP -= 1;
-        Debug.Log(PlayerBehavior.PlayerHP);
-        Debug.Log("Столкновение с астероидом");
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerBehavior.PlayerHP -= 1;
+            Destroy(gameObject);
+        }
     }
 }

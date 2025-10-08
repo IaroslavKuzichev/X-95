@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +10,12 @@ public class WeaponSystems: MonoBehaviour
     [SerializeField] private GameObject _torpedoPrefab;
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private float _fireRate;
-    private CustomInput _input;
+
+    [SerializeField] private TextMeshProUGUI _torpedoText;
+    [SerializeField] private TextMeshProUGUI _laserText;
+    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private TextMeshProUGUI _fireModeText;
+
     private float _fireDelay;
     private int _torpedoCount;
     private float _overheat;
@@ -33,18 +38,18 @@ public class WeaponSystems: MonoBehaviour
             }
         }
     }
-    private void Awake()
+    private void Start()
     {
-        _input = new CustomInput();
-        _input.Controller.Torpedo.performed += ctx => Torpedo();
-        _input.Controller.SwitchFire.performed += ctx => SwitchFire();
+        Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
+        Movement.input.Controller.SwitchFire.performed += ctx => SwitchFire();
         _fireDelay = 1 / _fireRate;
         _torpedoCount = 5;
+        _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
         Overheat = 0;
     }
     private void Update()
     {
-        if (_input.Controller.Laser.IsPressed())
+        if (Movement.input.Controller.Laser.IsPressed())
         {
             Overheat += 10f * Time.deltaTime;
             if (_fireDelay <= 0f)
@@ -64,22 +69,17 @@ public class WeaponSystems: MonoBehaviour
             _fireDelay = 0f;
             InputSystem.ResetHaptics();
         }
-        Debug.Log(_overheat);
-    }
-    private void OnEnable()
-    {
-        _input.Enable();
-    }
-    private void OnDisable()
-    {
-        _input.Disable();
+        _laserText.text = $"Перегрев: {Math.Round(Overheat)}";
+        _healthText.text = $"Прочность обшивки: {PlayerBehavior.PlayerHP}";
     }
     private void Torpedo()
     {
         if (_torpedoCount > 0)
         {
             StartCoroutine(Fire(_torpedoPrefab));
+            StartCoroutine(MechaController.TorpedoShake());
             _torpedoCount--;
+            _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
         }
     }
     private void SwitchFire()
@@ -87,16 +87,17 @@ public class WeaponSystems: MonoBehaviour
         if (_fireRate == 0)
         {
             _fireRate = 10;
+            _fireModeText.text = "Автоматическая стрельба";
         }
         else
         {
             _fireRate = 0;
+            _fireModeText.text = "Одиночная стрельба";
         }
-        Debug.Log($"Fire rate: {_fireRate}");
     }
     private IEnumerator Fire(GameObject proj)
     {
-        if (_overheat < 100f)
+        if (Overheat < 100f)
         {
             GameObject Projectile = Instantiate(proj, _firePoint.position, _firePoint.rotation);
             Rigidbody rb = Projectile.GetComponent<Rigidbody>();
@@ -106,10 +107,10 @@ public class WeaponSystems: MonoBehaviour
         }
         else
         {
-            _input.Controller.Laser.Disable();
+            Movement.input.Controller.Laser.Disable();
             Debug.Log("Weapon overheat");
             yield return new WaitForSecondsRealtime(5);
-            _input.Controller.Laser.Enable();
+            Movement.input.Controller.Laser.Enable();
             _overheat = 0f;
         }
     }
