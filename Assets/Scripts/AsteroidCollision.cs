@@ -6,8 +6,7 @@ public class AsteroidCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerBehavior.PlayerHP -= 1;
-            Destroy(gameObject);
+            PlayerBehavior.PlayerHP -= 2;
         }
     }
 }

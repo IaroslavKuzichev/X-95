@@ -51,7 +51,6 @@ public class WeaponSystems: MonoBehaviour
     {
         if (Movement.input.Controller.Laser.IsPressed())
         {
-            Overheat += 10f * Time.deltaTime;
             if (_fireDelay <= 0f)
             {
                 StartCoroutine(Fire(_laserPrefab));
@@ -61,7 +60,6 @@ public class WeaponSystems: MonoBehaviour
             {
                 _fireDelay -= Time.deltaTime;
             }
-            // Gamepad.current.SetMotorSpeeds(0.75f, 0f);
         }
         else
         {
@@ -102,7 +100,8 @@ public class WeaponSystems: MonoBehaviour
             GameObject Projectile = Instantiate(proj, _firePoint.position, _firePoint.rotation);
             Rigidbody rb = Projectile.GetComponent<Rigidbody>();
             rb.AddForce(_firePoint.up * 1000f, ForceMode.Force);
-            yield return new WaitForSecondsRealtime(2);
+            Overheat++;
+            yield return new WaitForSecondsRealtime(3);
             Destroy(Projectile);
         }
         else
@@ -111,7 +110,6 @@ public class WeaponSystems: MonoBehaviour
             Debug.Log("Weapon overheat");
             yield return new WaitForSecondsRealtime(5);
             Movement.input.Controller.Laser.Enable();
-            _overheat = 0f;
         }
     }
 }
