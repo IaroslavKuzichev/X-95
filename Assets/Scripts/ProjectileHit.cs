@@ -16,7 +16,8 @@ public class ProjectileHit : MonoBehaviour
     {
         Debug.Log("Start");
         GameObject explosion = Instantiate(_explosionPrefab, parent.position, parent.rotation);
-        gameObject.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponentInChildren<Collider>().enabled = false;
         yield return new WaitForSecondsRealtime(1.5f);
         Destroy(explosion);
         Debug.Log("Finish");

@@ -135,6 +135,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""194ba815-0e19-4441-89cb-1ddf5baf8517"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -313,6 +322,28 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbad3b9f-8369-4166-bca0-2e39614e2d0b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38aa78cf-abab-4bdb-b2a4-d9c9b97f07c2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -326,6 +357,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
         m_Controller_SwitchFire = m_Controller.FindAction("SwitchFire", throwIfNotFound: true);
+        m_Controller_Pause = m_Controller.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@CustomInput()
@@ -411,6 +443,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
     private readonly InputAction m_Controller_SwitchFire;
+    private readonly InputAction m_Controller_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -442,6 +475,10 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/SwitchFire".
         /// </summary>
         public InputAction @SwitchFire => m_Wrapper.m_Controller_SwitchFire;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Controller_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -483,6 +520,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started += instance.OnSwitchFire;
             @SwitchFire.performed += instance.OnSwitchFire;
             @SwitchFire.canceled += instance.OnSwitchFire;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -509,6 +549,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started -= instance.OnSwitchFire;
             @SwitchFire.performed -= instance.OnSwitchFire;
             @SwitchFire.canceled -= instance.OnSwitchFire;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -584,5 +627,12 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchFire(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

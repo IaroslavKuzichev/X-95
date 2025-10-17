@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    [SerializeField] private Canvas PauseScreen;
     static private int _playerHP;
     static public int PlayerHP
     {
@@ -13,8 +14,21 @@ public class PlayerBehavior : MonoBehaviour
             else _playerHP = value;
         }
     }
-    private void Awake()
+    private void Start()
     {
         PlayerHP = 100;
+        Movement.input.Controller.Pause.performed += ctx => TogglePause();
+    }
+    private void TogglePause()
+    {
+        PauseScreen.enabled = !PauseScreen.enabled;
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else 
+        {
+            Time.timeScale = 0;
+        }
     }
 }
