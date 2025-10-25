@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             Time.timeScale = 0;
             Movement.input.Controller.Disable();
+            Movement.input.UI.Navigate.Enable();
         }
     }
     private void Continue()
@@ -45,6 +47,7 @@ public class PlayerBehavior : MonoBehaviour
         _pauseScreen.enabled = false;
         Time.timeScale = 1;
         Movement.input.Controller.Enable();
+        Movement.input.UI.Navigate.Disable();
     }
     private void Exit()
     {

@@ -16,6 +16,9 @@ public class WeaponSystems: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private TextMeshProUGUI _fireModeText;
 
+    [SerializeField] private AudioSource _laserSource;
+    [SerializeField] private AudioSource _torpedoSource;
+
     private float _fireDelay;
     private int _torpedoCount;
     private float _overheat;
@@ -54,6 +57,7 @@ public class WeaponSystems: MonoBehaviour
             if (_fireDelay <= 0f)
             {
                 StartCoroutine(Fire(_laserPrefab));
+                _laserSource.Play();
                 _fireDelay = 1 / _fireRate;
             }
             else
@@ -74,6 +78,7 @@ public class WeaponSystems: MonoBehaviour
     {
         if (_torpedoCount > 0)
         {
+            _torpedoSource.Play();
             StartCoroutine(Fire(_torpedoPrefab));
             StartCoroutine(TorpedoWait());
             _torpedoCount--;

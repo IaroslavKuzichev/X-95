@@ -349,10 +349,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4217207787859389628, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Name
+      value: Music Source
+      objectReference: {fileID: 0}
     - target: {fileID: 4314946586445420793, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1184334229}
+    - target: {fileID: 4346410940597857730, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4417143135212023344, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -592,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 7903450062275396339, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172450520382930459, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Name
+      value: Laser Source
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
