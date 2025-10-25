@@ -75,7 +75,7 @@ public class WeaponSystems: MonoBehaviour
         if (_torpedoCount > 0)
         {
             StartCoroutine(Fire(_torpedoPrefab));
-            StartCoroutine(MechaController.TorpedoShake());
+            StartCoroutine(TorpedoWait());
             _torpedoCount--;
             _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
         }
@@ -111,5 +111,12 @@ public class WeaponSystems: MonoBehaviour
             yield return new WaitForSecondsRealtime(5);
             Movement.input.Controller.Laser.Enable();
         }
+    }
+    private IEnumerator TorpedoWait()
+    {
+        Movement.input.Controller.Torpedo.Disable();
+        Movement.rb.AddForce(-_firePoint.up * 500f, ForceMode.Force);
+        yield return new WaitForSecondsRealtime(3);
+        Movement.input.Controller.Torpedo.Enable();
     }
 }

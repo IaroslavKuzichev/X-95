@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "194ba815-0e19-4441-89cb-1ddf5baf8517",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -74,7 +65,7 @@
                 },
                 {
                     "name": "2D Vector",
-                    "id": "668ccb84-9c05-4f02-a18e-21b25894f97d",
+                    "id": "5108a219-574c-4038-934a-0c7b825288de",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -85,7 +76,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "3f2b62b0-5b0c-4914-9dce-3ed1ea3c25d3",
+                    "id": "5624685a-e1ac-4692-abc2-dbefa9ed85a7",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -96,7 +87,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "63b245fe-e2b1-4bf4-a32d-1a3b04d6a934",
+                    "id": "472b800e-4c22-43b9-91fc-4537026c3a67",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -107,7 +98,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "a1ec23f3-cd85-47dd-8c7b-1b7b887e834b",
+                    "id": "892255c3-113d-4cab-8bc9-96e84b2e3e8f",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -118,7 +109,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "5ff9083d-a35a-4029-b3ad-fe240acc47d8",
+                    "id": "1ef63012-a427-4d31-8301-36b8d0a5d414",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -236,10 +227,65 @@
                     "action": "SwitchFire",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "5b789b95-abe3-498b-8cf7-433f0517fa5a",
+            "actions": [
+                {
+                    "name": "Navigate",
+                    "type": "PassThrough",
+                    "id": "118ccfc5-fe99-46b7-aaf4-fdebcc4988f4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "f71d6812-0bd1-46c0-8eca-c6502c821325",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "f85b3306-50d9-41f5-a5cf-d281a2338a43",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "72867b2b-e50a-4d00-95ec-89050874a6b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a7fea86a-7a56-498b-aee3-ad70352a8227",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "dbad3b9f-8369-4166-bca0-2e39614e2d0b",
+                    "id": "553190e5-bb7f-4439-8bee-8af8183d9db4",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -250,12 +296,34 @@
                 },
                 {
                     "name": "",
-                    "id": "38aa78cf-abab-4bdb-b2a4-d9c9b97f07c2",
+                    "id": "d382caa4-4483-4e44-8b21-da00e525d59f",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b92def3-debd-4796-94ea-fa5f023735b4",
+                    "path": "<Gamepad>/{Submit}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a07b96b-b09c-4545-a6bf-e0c3b3eaba80",
+                    "path": "<Gamepad>/{Cancel}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

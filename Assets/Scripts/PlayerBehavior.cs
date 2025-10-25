@@ -1,8 +1,13 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    [SerializeField] private Canvas PauseScreen;
+    [SerializeField] private Canvas _pauseScreen;
+    [SerializeField] private Button _continueButton;
+    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _exitButton;
     static private int _playerHP;
     static public int PlayerHP
     {
@@ -17,18 +22,37 @@ public class PlayerBehavior : MonoBehaviour
     private void Start()
     {
         PlayerHP = 100;
-        Movement.input.Controller.Pause.performed += ctx => TogglePause();
+        Movement.input.UI.Pause.performed += ctx => TogglePause();
+        _continueButton.onClick.AddListener(Continue);
+        _restartButton.onClick.AddListener(Restart);
+        _exitButton.onClick.AddListener(Exit);
     }
     private void TogglePause()
     {
-        PauseScreen.enabled = !PauseScreen.enabled;
+        _pauseScreen.enabled = !_pauseScreen.enabled;
         if (Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            Continue();
         }
         else 
         {
             Time.timeScale = 0;
+            Movement.input.Controller.Disable();
         }
+    }
+    private void Continue()
+    {
+        _pauseScreen.enabled = false;
+        Time.timeScale = 1;
+        Movement.input.Controller.Enable();
+    }
+    private void Exit()
+    {
+        EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+    private void Restart()
+    {
+        Debug.Log("Restart");
     }
 }

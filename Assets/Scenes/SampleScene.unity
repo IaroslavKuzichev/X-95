@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4314946586445420793, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1184334229}
     - target: {fileID: 4417143135212023344, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -402,9 +406,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d59e062ed8f9aa842bc1a09c5ebf6c10, type: 2}
     - target: {fileID: 5483952587374129856, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d59e062ed8f9aa842bc1a09c5ebf6c10, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5483957341195364636, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -505,6 +509,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 82dbc0aa60a94574c9aa108b3def7a7e, type: 2}
+    - target: {fileID: 5502957980743494060, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 65.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502957980743494060, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5688736691987426981, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_margin.z
       value: -145.56378
@@ -597,6 +609,7 @@ PrefabInstance:
     - {fileID: 5497244705440985158, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     - {fileID: 5497515776648564850, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     - {fileID: 5497716229413785956, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+    - {fileID: 5148460030678145897, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -838,6 +851,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05edc9c0d84dfb4cbf61b13545dfe0b, type: 3}
+--- !u!1 &738913297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 950652659037790393, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 375431678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1125,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!20 &1184334229 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1767192439, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 375431678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1243716966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1299,7 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatDelay: 0.2
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -1329,7 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 738913297}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1335043361
@@ -1368,7 +1391,7 @@ MonoBehaviour:
   m_TrackedScrollDeltaMultiplier: 5
   m_BypassUIToolkitEvents: 0
   m_ActiveInputMode: 0
-  m_EnableXRInput: 1
+  m_EnableXRInput: 0
   m_EnableMouseInput: 1
   m_EnableTouchInput: 1
   m_EnableGamepadInput: 1

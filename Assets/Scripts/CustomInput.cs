@@ -135,15 +135,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""194ba815-0e19-4441-89cb-1ddf5baf8517"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -160,7 +151,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""668ccb84-9c05-4f02-a18e-21b25894f97d"",
+                    ""id"": ""5108a219-574c-4038-934a-0c7b825288de"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -171,7 +162,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""3f2b62b0-5b0c-4914-9dce-3ed1ea3c25d3"",
+                    ""id"": ""5624685a-e1ac-4692-abc2-dbefa9ed85a7"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -182,7 +173,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""63b245fe-e2b1-4bf4-a32d-1a3b04d6a934"",
+                    ""id"": ""472b800e-4c22-43b9-91fc-4537026c3a67"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -193,7 +184,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""a1ec23f3-cd85-47dd-8c7b-1b7b887e834b"",
+                    ""id"": ""892255c3-113d-4cab-8bc9-96e84b2e3e8f"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -204,7 +195,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""5ff9083d-a35a-4029-b3ad-fe240acc47d8"",
+                    ""id"": ""1ef63012-a427-4d31-8301-36b8d0a5d414"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -322,10 +313,65 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""5b789b95-abe3-498b-8cf7-433f0517fa5a"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""118ccfc5-fe99-46b7-aaf4-fdebcc4988f4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""f71d6812-0bd1-46c0-8eca-c6502c821325"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f85b3306-50d9-41f5-a5cf-d281a2338a43"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""72867b2b-e50a-4d00-95ec-89050874a6b5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a7fea86a-7a56-498b-aee3-ad70352a8227"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dbad3b9f-8369-4166-bca0-2e39614e2d0b"",
+                    ""id"": ""553190e5-bb7f-4439-8bee-8af8183d9db4"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -336,12 +382,34 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""38aa78cf-abab-4bdb-b2a4-d9c9b97f07c2"",
+                    ""id"": ""d382caa4-4483-4e44-8b21-da00e525d59f"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b92def3-debd-4796-94ea-fa5f023735b4"",
+                    ""path"": ""<Gamepad>/{Submit}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a07b96b-b09c-4545-a6bf-e0c3b3eaba80"",
+                    ""path"": ""<Gamepad>/{Cancel}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -357,12 +425,18 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
         m_Controller_SwitchFire = m_Controller.FindAction("SwitchFire", throwIfNotFound: true);
-        m_Controller_Pause = m_Controller.FindAction("Pause", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
+        m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
     }
 
     ~@CustomInput()
     {
         UnityEngine.Debug.Assert(!m_Controller.enabled, "This will cause a leak and performance issues, CustomInput.Controller.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, CustomInput.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -443,7 +517,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
     private readonly InputAction m_Controller_SwitchFire;
-    private readonly InputAction m_Controller_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -475,10 +548,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/SwitchFire".
         /// </summary>
         public InputAction @SwitchFire => m_Wrapper.m_Controller_SwitchFire;
-        /// <summary>
-        /// Provides access to the underlying input action "Controller/Pause".
-        /// </summary>
-        public InputAction @Pause => m_Wrapper.m_Controller_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -520,9 +589,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started += instance.OnSwitchFire;
             @SwitchFire.performed += instance.OnSwitchFire;
             @SwitchFire.canceled += instance.OnSwitchFire;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -549,9 +615,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @SwitchFire.started -= instance.OnSwitchFire;
             @SwitchFire.performed -= instance.OnSwitchFire;
             @SwitchFire.canceled -= instance.OnSwitchFire;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -585,6 +648,135 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ControllerActions" /> instance referencing this action map.
     /// </summary>
     public ControllerActions @Controller => new ControllerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_Submit;
+    private readonly InputAction m_UI_Cancel;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "UI".
+    /// </summary>
+    public struct UIActions
+    {
+        private @CustomInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public UIActions(@CustomInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Navigate".
+        /// </summary>
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Submit".
+        /// </summary>
+        public InputAction @Submit => m_Wrapper.m_UI_Submit;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Cancel".
+        /// </summary>
+        public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+        /// </summary>
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+    /// </summary>
+    public UIActions @UI => new UIActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller" which allows adding and removing callbacks.
     /// </summary>
@@ -627,6 +819,21 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchFire(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Navigate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNavigate(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -634,5 +841,19 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Submit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSubmit(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancel(InputAction.CallbackContext context);
     }
 }
