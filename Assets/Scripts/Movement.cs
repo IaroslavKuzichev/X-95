@@ -12,7 +12,6 @@ public class Movement : MonoBehaviour
     {
         input = new CustomInput();
         rb = GetComponent<Rigidbody>();
-        input.UI.Navigate.Disable();
     }
     private void OnEnable()
     {
