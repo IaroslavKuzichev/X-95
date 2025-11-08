@@ -1,3 +1,4 @@
+using Bhaptics.SDK2;
 using UnityEngine;
 
 public class AsteroidCollision : MonoBehaviour
@@ -8,6 +9,7 @@ public class AsteroidCollision : MonoBehaviour
         _collisionCounter++;
         if (collision.gameObject.CompareTag("Player") && _collisionCounter < 5)
         {
+            BhapticsLibrary.Play("asteroid_collision");
             PlayerBehavior.PlayerHP -= 1;
         }
         else

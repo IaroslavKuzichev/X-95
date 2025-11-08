@@ -18,5 +18,9 @@ namespace Bhaptics.SDK2
     {
         
         public const string ASTEROID_COLLISION = "asteroid_collision";
+        
+        public const string LASER_SHOT = "laser_shot";
+        
+        public const string TORPEDO_SHOT = "torpedo_shot";
     }
 }

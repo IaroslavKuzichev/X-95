@@ -1,3 +1,4 @@
+using Bhaptics.SDK2;
 using System;
 using System.Collections;
 using TMPro;
@@ -57,6 +58,7 @@ public class WeaponSystems: MonoBehaviour
             if (_fireDelay <= 0f)
             {
                 StartCoroutine(Fire(_laserPrefab));
+                BhapticsLibrary.Play("laser_shot");
                 _laserSource.Play();
                 _fireDelay = 1 / _fireRate;
             }
@@ -69,7 +71,7 @@ public class WeaponSystems: MonoBehaviour
         {
             Overheat -= 10f * Time.deltaTime;
             _fireDelay = 0f;
-            InputSystem.ResetHaptics();
+            BhapticsLibrary.StopByEventId("laser_shot");
         }
         _laserText.text = $"Перегрев: {Math.Round(Overheat)}";
         _healthText.text = $"Прочность обшивки: {PlayerBehavior.PlayerHP}";
@@ -80,6 +82,7 @@ public class WeaponSystems: MonoBehaviour
         {
             _torpedoSource.Play();
             StartCoroutine(Fire(_torpedoPrefab));
+            BhapticsLibrary.Play("torpedo_shot");
             StartCoroutine(TorpedoWait());
             _torpedoCount--;
             _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
