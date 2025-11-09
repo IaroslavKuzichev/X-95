@@ -22,7 +22,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void NewGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
     private void Continue()
     {

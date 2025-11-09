@@ -48,13 +48,12 @@ public class UIBehavior : MonoBehaviour
     }
     private void Exit()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     private void Restart()
     {
         Movement.input.Controller.Enable();
         Time.timeScale = 1;
-        SceneManager.LoadScene(gameObject.scene.name);
+        SceneManager.LoadScene(gameObject.scene.name, LoadSceneMode.Single);
     }
 }

@@ -1865,6 +1865,10 @@ PrefabInstance:
       propertyPath: from
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7607313112397492811, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _playerSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7841113537328387044, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: X-95
@@ -1878,7 +1882,6 @@ PrefabInstance:
       value: Laser Source
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7607313112397492811, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     - {fileID: 533848073959827002, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     - {fileID: 1386063818273087912, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
     - {fileID: 1285701673723950905, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
