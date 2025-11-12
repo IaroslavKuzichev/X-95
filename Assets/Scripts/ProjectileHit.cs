@@ -6,7 +6,7 @@ public class ProjectileHit : MonoBehaviour
     [SerializeField] private GameObject _explosionPrefab;
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Asteroid"))
         {
             StartCoroutine(Explosion(other.gameObject.transform));
             Destroy(other.gameObject);

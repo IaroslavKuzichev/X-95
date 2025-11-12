@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     static private int _playerHP;
+    static private int _colectibleCount; 
     static public int PlayerHP
     {
         get => _playerHP;
@@ -13,8 +14,18 @@ public class PlayerBehavior : MonoBehaviour
             else _playerHP = value;
         }
     }
+    static public int CollectibleCount
+    {
+        get => _colectibleCount;
+        set
+        {
+            if (value < 0) _colectibleCount = 0;
+            else _colectibleCount = value;
+        }
+    }
     private void Start()
     {
+        CollectibleCount = 0;
         PlayerHP = 100;
     }
     

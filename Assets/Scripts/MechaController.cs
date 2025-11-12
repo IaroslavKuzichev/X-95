@@ -22,8 +22,9 @@ public class MechaController : MonoBehaviour
 
     private void Update()
     {
-        Controller.Pitch = (-Movement.rb.linearVelocity.z + Movement.rb.linearVelocity.y) * 3f;
-        Controller.Roll = (Movement.rb.linearVelocity.x) * 3f;
+        Vector3 relativeVelocity = transform.InverseTransformDirection(Movement.rb.linearVelocity);
+        Controller.Pitch = (relativeVelocity.z + relativeVelocity.y) * 3f;
+        Controller.Roll = (relativeVelocity.x) * 3f;
     }
 
     private void OnEnable()
