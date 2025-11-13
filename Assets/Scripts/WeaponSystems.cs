@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class WeaponSystems: MonoBehaviour
 {
@@ -20,8 +19,9 @@ public class WeaponSystems: MonoBehaviour
     [SerializeField] private AudioSource _laserSource;
     [SerializeField] private AudioSource _torpedoSource;
 
-    private float _fireDelay;
+    private bool _isOverheated;
     private int _torpedoCount;
+    private float _fireDelay;
     private float _overheat;
     private float Overheat
     {
@@ -44,37 +44,47 @@ public class WeaponSystems: MonoBehaviour
     }
     private void Start()
     {
-        Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
-        Movement.input.Controller.SwitchFire.performed += ctx => SwitchFire();
-        _fireDelay = 1 / _fireRate;
-        _torpedoCount = 5;
-        _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
-        Overheat = 0;
+        if (gameObject.scene.name != "MainMenu")
+        {
+            Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
+            Movement.input.Controller.SwitchFire.performed += ctx => SwitchFire();
+            _fireDelay = 1 / _fireRate;
+            _torpedoCount = 5;
+            _torpedoText.text = $"Торпеды: {_torpedoCount}";
+            Overheat = 0;
+            _isOverheated = false;
+        }
     }
     private void Update()
     {
-        if (Movement.input.Controller.Laser.IsPressed())
+        if (gameObject.scene.name != "MainMenu")
         {
-            if (_fireDelay <= 0f)
+            if (Movement.input.Controller.Laser.IsPressed())
             {
-                StartCoroutine(Fire(_laserPrefab));
-                BhapticsLibrary.Play("laser_shot");
-                _laserSource.Play();
-                _fireDelay = 1 / _fireRate;
+                if (_fireDelay <= 0f)
+                {
+                    StartCoroutine(Fire(_laserPrefab));
+                    BhapticsLibrary.Play("laser_shot");
+                    _laserSource.Play();
+                    _fireDelay = 1 / _fireRate;
+                }
+                else
+                {
+                    _fireDelay -= Time.deltaTime;
+                }
             }
             else
             {
-                _fireDelay -= Time.deltaTime;
+                Overheat -= 10f * Time.deltaTime;
+                _fireDelay = 0f;
+                BhapticsLibrary.StopByEventId("laser_shot");
             }
+            if (!_isOverheated)
+            {
+                _laserText.text = $"Нагрев: {Math.Round(Overheat)}%";
+            }
+            _healthText.text = $"Обшивка: {PlayerBehavior.PlayerHP}";
         }
-        else
-        {
-            Overheat -= 10f * Time.deltaTime;
-            _fireDelay = 0f;
-            BhapticsLibrary.StopByEventId("laser_shot");
-        }
-        _laserText.text = $"Перегрев: {Math.Round(Overheat)}";
-        _healthText.text = $"Прочность обшивки: {PlayerBehavior.PlayerHP}";
     }
     private void Torpedo()
     {
@@ -84,8 +94,9 @@ public class WeaponSystems: MonoBehaviour
             StartCoroutine(Fire(_torpedoPrefab));
             BhapticsLibrary.Play("torpedo_shot");
             StartCoroutine(TorpedoWait());
+            BhapticsLibrary.StopByEventId("torpedo_shot");
             _torpedoCount--;
-            _torpedoText.text = $"Кол-во торпед: {_torpedoCount}";
+            _torpedoText.text = $"Торпеды: {_torpedoCount}";
         }
     }
     private void SwitchFire()
@@ -93,12 +104,12 @@ public class WeaponSystems: MonoBehaviour
         if (_fireRate == 0)
         {
             _fireRate = 10;
-            _fireModeText.text = "Автоматическая стрельба";
+            _fireModeText.text = "Авт. стрельба";
         }
         else
         {
             _fireRate = 0;
-            _fireModeText.text = "Одиночная стрельба";
+            _fireModeText.text = "Од. стрельба";
         }
     }
     private IEnumerator Fire(GameObject proj)
@@ -115,8 +126,12 @@ public class WeaponSystems: MonoBehaviour
         else
         {
             Movement.input.Controller.Laser.Disable();
-            Debug.Log("Weapon overheat");
+            _laserText.text = "Перегрев орудия";
+            _isOverheated = true;
             yield return new WaitForSecondsRealtime(5);
+            _isOverheated = false;
+            _laserText.text = "Нагрев: 0%";
+            Overheat = 0;
             Movement.input.Controller.Laser.Enable();
         }
     }

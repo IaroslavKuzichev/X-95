@@ -14,6 +14,7 @@ public class AsteroidCollision : MonoBehaviour
         }
         else
         {
+            BhapticsLibrary.StopByEventId("asteroid_collision");
             Destroy(gameObject);
         }
     }

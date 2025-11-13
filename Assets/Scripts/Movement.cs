@@ -14,6 +14,10 @@ public class Movement : MonoBehaviour
     {
         input = new CustomInput();
         rb = GetComponent<Rigidbody>();
+        if (gameObject.scene.name == "MainMenu")
+        {
+            _playerSpeed = 0;
+        }
     }
     private void OnEnable()
     {
@@ -33,7 +37,7 @@ public class Movement : MonoBehaviour
             _playerTurn = input.Controller.Turn.ReadValue<Vector2>();
             Vector3 _movement = new Vector3(_playerMove.x, _playerVertical.y * 0.5f, _playerMove.y);
             rb.AddRelativeForce(_movement * _playerSpeed);
-            _joystick.gameObject.transform.rotation = Quaternion.Euler(-_playerVertical.y * 15f, transform.rotation.y, -_playerMove.x * 20f);
+            _joystick.gameObject.transform.rotation = Quaternion.Euler(-_playerVertical.y * 15f, 0, -_playerMove.x * 20f);
             if (Math.Abs(_playerTurn.x) > 0f)
             {
                 transform.Rotate(0, _playerTurn.x * 0.25f, 0);
@@ -41,11 +45,4 @@ public class Movement : MonoBehaviour
             //transform.rotation = Quaternion.Euler(_playerVertical.y * 1.5f, transform.rotation.y, -_playerMove.x * 4f);
         }
     }
-    //private void FixedUpdate()
-    //{
-    //    if (Math.Abs(_playerTurn.x) > 0f)
-    //    {
-    //        rb.AddTorque(0f, _playerTurn.x, 0f);
-    //    }
-    //}
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIBehavior : MonoBehaviour
 {
     [SerializeField] private Canvas _pauseScreen;
+    [SerializeField] private Canvas _hudScreen;
     [SerializeField] private Button _continueButton;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
@@ -18,15 +19,20 @@ public class UIBehavior : MonoBehaviour
     }
     private void Start()
     {
-        Movement.input.UI.Pause.performed += ctx => TogglePause();
-        _eventSystem = FindAnyObjectByType<EventSystem>();
         if (gameObject.scene.name != "MainMenu")
         {
-            _eventSystem.enabled = false;
+            _hudScreen.enabled = true;
+            Movement.input.UI.Pause.performed += ctx => TogglePause();
+            _eventSystem = FindAnyObjectByType<EventSystem>();
+            if (gameObject.scene.name != "MainMenu")
+            {
+                _eventSystem.enabled = false;
+            }
         }
     }
     private void TogglePause()
     {
+        _continueButton.Select();
         _pauseScreen.enabled = !_pauseScreen.enabled;
         _eventSystem.enabled = !_eventSystem.enabled;
         if (Time.timeScale == 0)
@@ -49,6 +55,7 @@ public class UIBehavior : MonoBehaviour
     private void Exit()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
     private void Restart()
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-//using UnityEditor;
+using UnityEditor;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -11,13 +11,15 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _settingsExitButton;
 
-    [SerializeField] private Canvas _settingsCanvas;
+    [SerializeField] private Canvas _settingsScreen;
+    [SerializeField] private Canvas _menuScreen;
 
     private void Awake()
     {
         _newGameButton.onClick.AddListener(NewGame);
         _continueButton.onClick.AddListener(Continue);
-        _settingsButton.onClick.AddListener(Settings);
+        _settingsButton.onClick.AddListener(EnterSettings);
+        _settingsExitButton.onClick.AddListener(ExitSettings);
         _quitButton.onClick.AddListener(QuitGame);
     }
     private void NewGame()
@@ -28,13 +30,19 @@ public class MainMenuUI : MonoBehaviour
     {
         Debug.Log("Continue");
     }
-    private void Settings()
+    private void EnterSettings()
     {
-        _settingsCanvas.enabled = true;
+        _menuScreen.enabled = false;
+        _settingsScreen.enabled = true;
+    }
+    private void ExitSettings()
+    {
+        _menuScreen.enabled = true;
+        _settingsScreen.enabled = false;
     }
     private void QuitGame()
     {
-        //EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }
