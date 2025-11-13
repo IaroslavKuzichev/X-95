@@ -34,11 +34,13 @@ public class MainMenuUI : MonoBehaviour
     {
         _menuScreen.enabled = false;
         _settingsScreen.enabled = true;
+        _settingsExitButton.Select();
     }
     private void ExitSettings()
     {
         _menuScreen.enabled = true;
         _settingsScreen.enabled = false;
+        _newGameButton.Select();
     }
     private void QuitGame()
     {
