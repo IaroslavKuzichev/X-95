@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
             _playerTurn = input.Controller.Turn.ReadValue<Vector2>();
             Vector3 _movement = new Vector3(_playerMove.x, _playerVertical.y * 0.5f, _playerMove.y);
             rb.AddRelativeForce(_movement * _playerSpeed);
-            _joystick.gameObject.transform.rotation = Quaternion.Euler(-_playerVertical.y * 15f, 0, -_playerMove.x * 20f);
+            _joystick.gameObject.transform.localRotation = Quaternion.Euler(-_playerVertical.y * 15f + 45, 0, -_playerMove.x * 20f);
             if (Math.Abs(_playerTurn.x) > 0f)
             {
                 transform.Rotate(0, _playerTurn.x * 0.25f, 0);
