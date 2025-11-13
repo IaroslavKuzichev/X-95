@@ -77,7 +77,6 @@ public class WeaponSystems: MonoBehaviour
             {
                 Overheat -= 10f * Time.deltaTime;
                 _fireDelay = 0f;
-                BhapticsLibrary.StopByEventId("laser_shot");
             }
             if (!_isOverheated)
             {
@@ -93,8 +92,8 @@ public class WeaponSystems: MonoBehaviour
             _torpedoSource.Play();
             StartCoroutine(Fire(_torpedoPrefab));
             BhapticsLibrary.Play("torpedo_shot");
+            BhapticsLibrary.Play("torpedo_push");
             StartCoroutine(TorpedoWait());
-            BhapticsLibrary.StopByEventId("torpedo_shot");
             _torpedoCount--;
             _torpedoText.text = $"Торпеды: {_torpedoCount}";
         }
