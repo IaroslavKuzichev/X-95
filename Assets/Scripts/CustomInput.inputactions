@@ -42,15 +42,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "SwitchFire",
-                    "type": "Button",
-                    "id": "ca7d8abf-5518-4180-a721-2ce39187876b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Turn",
                     "type": "Value",
                     "id": "ff5331e9-767c-4e41-8608-4af66cd7dd45",
@@ -214,28 +205,6 @@
                     "action": "Vertical",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "99b73602-0625-4a25-87f4-9d64b5745ab8",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchFire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a883c025-ffe8-4635-9c92-1068d60c8b8c",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchFire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "2D Vector",

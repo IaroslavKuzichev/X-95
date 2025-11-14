@@ -22,7 +22,5 @@ namespace Bhaptics.SDK2
         public const string LASER_SHOT = "laser_shot";
         
         public const string TORPEDO_SHOT = "torpedo_shot";
-        
-        public const string TORPEDO_PUSH = "torpedo_push";
     }
 }

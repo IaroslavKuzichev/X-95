@@ -14,7 +14,6 @@ public class WeaponSystems: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _torpedoText;
     [SerializeField] private TextMeshProUGUI _laserText;
     [SerializeField] private TextMeshProUGUI _healthText;
-    [SerializeField] private TextMeshProUGUI _fireModeText;
 
     [SerializeField] private AudioSource _laserSource;
     [SerializeField] private AudioSource _torpedoSource;
@@ -47,7 +46,6 @@ public class WeaponSystems: MonoBehaviour
         if (gameObject.scene.name != "MainMenu")
         {
             Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
-            Movement.input.Controller.SwitchFire.performed += ctx => SwitchFire();
             _fireDelay = 1 / _fireRate;
             _torpedoCount = 5;
             _torpedoText.text = $"Торпеды: {_torpedoCount}";
@@ -92,23 +90,9 @@ public class WeaponSystems: MonoBehaviour
             _torpedoSource.Play();
             StartCoroutine(Fire(_torpedoPrefab));
             BhapticsLibrary.Play("torpedo_shot");
-            BhapticsLibrary.Play("torpedo_push");
             StartCoroutine(TorpedoWait());
             _torpedoCount--;
             _torpedoText.text = $"Торпеды: {_torpedoCount}";
-        }
-    }
-    private void SwitchFire()
-    {
-        if (_fireRate == 0)
-        {
-            _fireRate = 10;
-            _fireModeText.text = "Авт. стрельба";
-        }
-        else
-        {
-            _fireRate = 0;
-            _fireModeText.text = "Од. стрельба";
         }
     }
     private IEnumerator Fire(GameObject proj)
@@ -119,7 +103,7 @@ public class WeaponSystems: MonoBehaviour
             Rigidbody rb = Projectile.GetComponent<Rigidbody>();
             rb.AddForce(_firePoint.up * 1000f, ForceMode.Force);
             Overheat++;
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSeconds(3);
             Destroy(Projectile);
         }
         else
@@ -127,7 +111,7 @@ public class WeaponSystems: MonoBehaviour
             Movement.input.Controller.Laser.Disable();
             _laserText.text = "Перегрев орудия";
             _isOverheated = true;
-            yield return new WaitForSecondsRealtime(5);
+            yield return new WaitForSeconds(5);
             _isOverheated = false;
             _laserText.text = "Нагрев: 0%";
             Overheat = 0;
@@ -138,7 +122,7 @@ public class WeaponSystems: MonoBehaviour
     {
         Movement.input.Controller.Torpedo.Disable();
         Movement.rb.AddForce(-_firePoint.up * 500f, ForceMode.Force);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(3);
         Movement.input.Controller.Torpedo.Enable();
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -34,6 +35,7 @@ public class UIBehavior : MonoBehaviour
     {
         _continueButton.Select();
         _pauseScreen.enabled = !_pauseScreen.enabled;
+        _hudScreen.enabled = !_hudScreen.enabled;
         _eventSystem.enabled = !_eventSystem.enabled;
         if (Time.timeScale == 0)
         {

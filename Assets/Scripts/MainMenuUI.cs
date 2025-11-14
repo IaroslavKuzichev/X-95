@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+using System.Collections;
+//using UnityEditor;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        StartCoroutine(LoadDelay());
         _newGameButton.onClick.AddListener(NewGame);
         _continueButton.onClick.AddListener(Continue);
         _settingsButton.onClick.AddListener(EnterSettings);
@@ -44,7 +46,13 @@ public class MainMenuUI : MonoBehaviour
     }
     private void QuitGame()
     {
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
         Application.Quit();
+    }
+    private IEnumerator LoadDelay()
+    {
+        _newGameButton.interactable = false;
+        yield return new WaitForSeconds(0.5f);
+        _newGameButton.interactable = true;
     }
 }

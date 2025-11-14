@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8837201160733401031}
   - component: {fileID: 4559416431079868992}
   m_Layer: 0
-  m_Name: Collectible
-  m_TagString: Untagged
+  m_Name: Collectible (Purple)
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1af7b52ce597f4ea3dd0efac6e979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 10
+  _crystalCountText: {fileID: 0}
+  _rotationSpeed: 15
 --- !u!1001 &8638570122209190922
 PrefabInstance:
   m_ObjectHideFlags: 0

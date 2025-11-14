@@ -128,15 +128,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""SwitchFire"",
-                    ""type"": ""Button"",
-                    ""id"": ""ca7d8abf-5518-4180-a721-2ce39187876b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Turn"",
                     ""type"": ""Value"",
                     ""id"": ""ff5331e9-767c-4e41-8608-4af66cd7dd45"",
@@ -300,28 +291,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""99b73602-0625-4a25-87f4-9d64b5745ab8"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a883c025-ffe8-4635-9c92-1068d60c8b8c"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchFire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""2D Vector"",
@@ -576,7 +545,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Laser = m_Controller.FindAction("Laser", throwIfNotFound: true);
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
-        m_Controller_SwitchFire = m_Controller.FindAction("SwitchFire", throwIfNotFound: true);
         m_Controller_Turn = m_Controller.FindAction("Turn", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -669,7 +637,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Laser;
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
-    private readonly InputAction m_Controller_SwitchFire;
     private readonly InputAction m_Controller_Turn;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
@@ -698,10 +665,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/Vertical".
         /// </summary>
         public InputAction @Vertical => m_Wrapper.m_Controller_Vertical;
-        /// <summary>
-        /// Provides access to the underlying input action "Controller/SwitchFire".
-        /// </summary>
-        public InputAction @SwitchFire => m_Wrapper.m_Controller_SwitchFire;
         /// <summary>
         /// Provides access to the underlying input action "Controller/Turn".
         /// </summary>
@@ -744,9 +707,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Vertical.started += instance.OnVertical;
             @Vertical.performed += instance.OnVertical;
             @Vertical.canceled += instance.OnVertical;
-            @SwitchFire.started += instance.OnSwitchFire;
-            @SwitchFire.performed += instance.OnSwitchFire;
-            @SwitchFire.canceled += instance.OnSwitchFire;
             @Turn.started += instance.OnTurn;
             @Turn.performed += instance.OnTurn;
             @Turn.canceled += instance.OnTurn;
@@ -773,9 +733,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Vertical.started -= instance.OnVertical;
             @Vertical.performed -= instance.OnVertical;
             @Vertical.canceled -= instance.OnVertical;
-            @SwitchFire.started -= instance.OnSwitchFire;
-            @SwitchFire.performed -= instance.OnSwitchFire;
-            @SwitchFire.canceled -= instance.OnSwitchFire;
             @Turn.started -= instance.OnTurn;
             @Turn.performed -= instance.OnTurn;
             @Turn.canceled -= instance.OnTurn;
@@ -976,13 +933,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnVertical(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "SwitchFire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSwitchFire(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Turn" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
