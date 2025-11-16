@@ -102,7 +102,7 @@ public class WeaponSystems: MonoBehaviour
             GameObject Projectile = Instantiate(proj, _firePoint.position, _firePoint.rotation);
             Rigidbody rb = Projectile.GetComponent<Rigidbody>();
             rb.AddForce(_firePoint.up * 1000f, ForceMode.Force);
-            Overheat++;
+            Overheat += 2;
             yield return new WaitForSeconds(3);
             Destroy(Projectile);
         }
