@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -28,5 +29,11 @@ public class PlayerBehavior : MonoBehaviour
         CollectibleCount = 0;
         PlayerHP = 100;
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Finish") && CollectibleCount == 2)
+        {
+            SceneManager.LoadScene("FinishScene");
+        }
+    }
 }

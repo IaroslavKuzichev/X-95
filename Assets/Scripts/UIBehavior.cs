@@ -20,15 +20,12 @@ public class UIBehavior : MonoBehaviour
     }
     private void Start()
     {
-        if (gameObject.scene.name != "MainMenu")
+        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
         {
             _hudScreen.enabled = true;
             Movement.input.UI.Pause.performed += ctx => TogglePause();
             _eventSystem = FindAnyObjectByType<EventSystem>();
-            if (gameObject.scene.name != "MainMenu")
-            {
-                _eventSystem.enabled = false;
-            }
+            _eventSystem.enabled = false;
         }
     }
     private void TogglePause()

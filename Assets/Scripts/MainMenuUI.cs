@@ -40,7 +40,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void NewGame()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("SampleLevel", LoadSceneMode.Single);
     }
     private void ToggleInstructions()
     {

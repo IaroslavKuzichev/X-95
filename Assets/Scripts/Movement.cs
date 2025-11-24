@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     {
         input = new CustomInput();
         rb = GetComponent<Rigidbody>();
-        if (gameObject.scene.name == "MainMenu")
+        if (gameObject.scene.name == "MainMenu" || gameObject.scene.name == "FinishScene")
         {
             _playerSpeed = 0;
         }

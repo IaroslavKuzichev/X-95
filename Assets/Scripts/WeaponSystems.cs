@@ -43,7 +43,7 @@ public class WeaponSystems: MonoBehaviour
     }
     private void Start()
     {
-        if (gameObject.scene.name != "MainMenu")
+        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
         {
             Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
             _fireDelay = 1 / _fireRate;
@@ -55,7 +55,7 @@ public class WeaponSystems: MonoBehaviour
     }
     private void Update()
     {
-        if (gameObject.scene.name != "MainMenu")
+        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
         {
             if (Movement.input.Controller.Laser.IsPressed())
             {
