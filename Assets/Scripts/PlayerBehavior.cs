@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    [SerializeField] private GameObject _camera; 
+
     static private int _playerHP;
     static private int _colectibleCount; 
+    static public Vector3 CameraPosition;
     static public int PlayerHP
     {
         get => _playerHP;
@@ -28,6 +31,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         CollectibleCount = 0;
         PlayerHP = 100;
+        _camera.transform.localPosition = CameraPosition;
     }
     private void OnTriggerEnter(Collider other)
     {

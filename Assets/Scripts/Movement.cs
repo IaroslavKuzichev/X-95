@@ -1,4 +1,5 @@
 using System;
+using Bhaptics.SDK2;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -41,7 +42,16 @@ public class Movement : MonoBehaviour
             if (Math.Abs(playerTurn.x) > 0f)
             {
                 transform.Rotate(0, playerTurn.x * 0.25f, 0);
-            } 
+            }
+
+            if (rb.linearVelocity.x > 0.2f || rb.linearVelocity.y > 0.2f || rb.linearVelocity.z > 0.2f)
+            {
+                BhapticsLibrary.Play("movement");
+            }
+            else 
+            {
+                BhapticsLibrary.StopByEventId("movement");
+            }
             //transform.rotation = Quaternion.Euler(_playerVertical.y * 1.5f, transform.rotation.y, -_playerMove.x * 4f);
         }
     }

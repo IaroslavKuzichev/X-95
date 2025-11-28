@@ -135,6 +135,15 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Record"",
+                    ""type"": ""Button"",
+                    ""id"": ""08a193d4-851d-44a0-866c-219be4d1e0a8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -357,6 +366,17 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
                     ""action"": ""Turn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e620df8-0486-42c8-8e35-a1fcb3162162"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Record"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -546,6 +566,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         m_Controller_Torpedo = m_Controller.FindAction("Torpedo", throwIfNotFound: true);
         m_Controller_Vertical = m_Controller.FindAction("Vertical", throwIfNotFound: true);
         m_Controller_Turn = m_Controller.FindAction("Turn", throwIfNotFound: true);
+        m_Controller_Record = m_Controller.FindAction("Record", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -638,6 +659,7 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Torpedo;
     private readonly InputAction m_Controller_Vertical;
     private readonly InputAction m_Controller_Turn;
+    private readonly InputAction m_Controller_Record;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -669,6 +691,10 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/Turn".
         /// </summary>
         public InputAction @Turn => m_Wrapper.m_Controller_Turn;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/Record".
+        /// </summary>
+        public InputAction @Record => m_Wrapper.m_Controller_Record;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -710,6 +736,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Turn.started += instance.OnTurn;
             @Turn.performed += instance.OnTurn;
             @Turn.canceled += instance.OnTurn;
+            @Record.started += instance.OnRecord;
+            @Record.performed += instance.OnRecord;
+            @Record.canceled += instance.OnRecord;
         }
 
         /// <summary>
@@ -736,6 +765,9 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
             @Turn.started -= instance.OnTurn;
             @Turn.performed -= instance.OnTurn;
             @Turn.canceled -= instance.OnTurn;
+            @Record.started -= instance.OnRecord;
+            @Record.performed -= instance.OnRecord;
+            @Record.canceled -= instance.OnRecord;
         }
 
         /// <summary>
@@ -940,6 +972,13 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTurn(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Record" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRecord(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

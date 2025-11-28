@@ -8,53 +8,67 @@ using UnityEngine.EventSystems;
 public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button _newGameButton;
-    [SerializeField] private Button _instructionsButton;
+    [SerializeField] private Button _adjustButton;
     [SerializeField] private Button _settingsButton;
 
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _settingsExitButton;
-    [SerializeField] private Button _instructionsExitButton;
+    [SerializeField] private Button _adjustExitButton;
 
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
 
     [SerializeField] private Canvas _settingsScreen;
-    [SerializeField] private Canvas _instructionsScreen;
+    [SerializeField] private Canvas _adjustScreen;
     [SerializeField] private Canvas _menuScreen;
+
+    [SerializeField] private GameObject _camera;
 
     private void Awake()
     {
         StartCoroutine(LoadDelay());
         _newGameButton.onClick.AddListener(NewGame);
-        _instructionsButton.onClick.AddListener(ToggleInstructions);
+        _adjustButton.onClick.AddListener(ToggleAdjust);
         _settingsButton.onClick.AddListener(ToggleSettings);
 
-        _instructionsExitButton.onClick.AddListener(ToggleInstructions);
+        _adjustExitButton.onClick.AddListener(ToggleAdjust);
         _settingsExitButton.onClick.AddListener(ToggleSettings);
         _quitButton.onClick.AddListener(QuitGame);
 
         _settingsExitButton.enabled = false;
-        _instructionsExitButton.enabled = false;
+        _adjustExitButton.enabled = false;
         _musicSlider.enabled = false;
         _sfxSlider.enabled = false;
+
+        PlayerBehavior.CameraPosition = new Vector3(0, 0.85f, 0.65f);
+    }
+    private void Update()
+    {
+        if (_adjustScreen.enabled)
+        {
+            Vector2 posY = Movement.input.Controller.Move.ReadValue<Vector2>();
+            Vector2 posX = Movement.input.Controller.Vertical.ReadValue<Vector2>();
+            _camera.transform.localPosition += new Vector3(0, posY.y * 0.01f, posX.y * 0.01f);
+        }
     }
     private void NewGame()
     {
         SceneManager.LoadScene("SampleLevel", LoadSceneMode.Single);
     }
-    private void ToggleInstructions()
+    private void ToggleAdjust()
     {
-        SwitchScreen(_instructionsScreen);
+        SwitchScreen(_adjustScreen);
 
-        _instructionsExitButton.enabled = !_instructionsExitButton.enabled;
+        _adjustExitButton.enabled = !_adjustExitButton.enabled;
 
         if (_menuScreen.enabled)
         {
-            _instructionsButton.Select();
+            _adjustButton.Select();
+            PlayerBehavior.CameraPosition = _camera.transform.localPosition;
         }
         else
         {
-            _instructionsExitButton.Select();
+            _adjustExitButton.Select();
         }
     }
     private void ToggleSettings()
@@ -85,7 +99,7 @@ public class MainMenuUI : MonoBehaviour
         screen.enabled = !screen.enabled;
 
         _newGameButton.enabled = !_newGameButton.enabled;
-        _instructionsButton.enabled = !_instructionsButton.enabled;
+        _adjustButton.enabled = !_adjustButton.enabled;
         _settingsButton.enabled = !_settingsButton.enabled;
         _quitButton.enabled = !_quitButton.enabled;
     }
