@@ -1,14 +1,21 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject _camera; 
+    [SerializeField] private TextMeshProUGUI _weaponText;
+    [SerializeField] private TextMeshProUGUI _engineText;
 
-    static private int _playerHP;
-    static private int _colectibleCount; 
-    static public Vector3 CameraPosition;
-    static public int PlayerHP
+    private static int _playerHP;
+    private static int _colectibleCount;
+    
+    public static Vector3 CameraPosition;
+
+    public static bool WeaponsDamaged;
+    public static bool EnginesDamaged;
+    public static int PlayerHP
     {
         get => _playerHP;
         set
@@ -18,7 +25,7 @@ public class PlayerBehavior : MonoBehaviour
             else _playerHP = value;
         }
     }
-    static public int CollectibleCount
+    public static int CollectibleCount
     {
         get => _colectibleCount;
         set
@@ -29,6 +36,8 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void Start()
     {
+        WeaponsDamaged = false;
+        EnginesDamaged = false;
         CollectibleCount = 0;
         PlayerHP = 100;
         _camera.transform.localPosition = CameraPosition;
@@ -38,6 +47,26 @@ public class PlayerBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Finish") && CollectibleCount == 2)
         {
             SceneManager.LoadScene("FinishScene");
+        }
+    }
+    private void Update()
+    {
+        if (WeaponsDamaged)
+        {
+            _weaponText.text = "Повреждение орудий";
+        }
+        else
+        {
+            _weaponText.text = "";
+        }
+
+        if (EnginesDamaged)
+        {
+            _engineText.text = "Повреждение двигателя";
+        }
+        else
+        {
+            _engineText.text = "";
         }
     }
 }

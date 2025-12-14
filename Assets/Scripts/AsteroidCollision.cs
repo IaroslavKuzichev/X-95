@@ -7,10 +7,13 @@ public class AsteroidCollision : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         _collisionCounter++;
-        if (collision.gameObject.CompareTag("Player") && _collisionCounter < 5)
+        if (_collisionCounter < 5)
         {
-            BhapticsLibrary.Play("asteroid_collision");
-            PlayerBehavior.PlayerHP -= 1;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                BhapticsLibrary.Play("asteroid_collision");
+                PlayerBehavior.PlayerHP -= 1;
+            }
         }
         else
         {

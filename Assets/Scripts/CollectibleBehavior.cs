@@ -12,7 +12,7 @@ public class CollectibleBehavior : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("PlayerFront") || other.gameObject.CompareTag("PlayerBack"))
         {
             PlayerBehavior.CollectibleCount++;
             _crystalCountText.text = $"Кристаллы: {PlayerBehavior.CollectibleCount}";

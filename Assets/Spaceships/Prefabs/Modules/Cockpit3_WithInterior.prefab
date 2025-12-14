@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 65386904390051372}
   m_Layer: 0
   m_Name: Collider1
-  m_TagString: Player
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 4633844506500618}
   m_Layer: 0
   m_Name: Cockpit3_WithInterior
-  m_TagString: Player
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1459,7 +1459,7 @@ GameObject:
   - component: {fileID: 23515156281065180}
   m_Layer: 0
   m_Name: Cockpit3_Glass
-  m_TagString: Untagged
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2488,7 +2488,7 @@ GameObject:
   - component: {fileID: 4980414493002766}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Player
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3371,7 +3371,7 @@ GameObject:
   - component: {fileID: 23539108184547696}
   m_Layer: 0
   m_Name: Cockpit3_Body
-  m_TagString: Player
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4976,7 +4976,7 @@ GameObject:
   - component: {fileID: 65450437132201326}
   m_Layer: 0
   m_Name: Collider2
-  m_TagString: Player
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

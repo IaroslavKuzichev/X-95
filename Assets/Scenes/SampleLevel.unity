@@ -4298,6 +4298,10 @@ PrefabInstance:
       propertyPath: m_Spacing
       value: -9
       objectReference: {fileID: 0}
+    - target: {fileID: 2815983315111369669, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_Name
+      value: WeaponText
+      objectReference: {fileID: 0}
     - target: {fileID: 2818012300190486568, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_Name
       value: X-95
@@ -4349,6 +4353,14 @@ PrefabInstance:
     - target: {fileID: 3160432592276143485, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187438430452258885, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634994066839009815, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: PlayerSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5353100226195439097, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_HorizontalAlignment

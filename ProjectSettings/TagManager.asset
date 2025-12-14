@@ -11,6 +11,8 @@ TagManager:
   - SFX
   - Torpedo
   - Effects
+  - PlayerFront
+  - PlayerBack
   layers:
   - Default
   - TransparentFX

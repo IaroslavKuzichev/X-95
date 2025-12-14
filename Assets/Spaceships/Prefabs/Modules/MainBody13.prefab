@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 65700728777794454}
   m_Layer: 0
   m_Name: Collider1
-  m_TagString: Untagged
+  m_TagString: PlayerFront
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 65328076977491194}
   m_Layer: 0
   m_Name: Collider2
-  m_TagString: Untagged
+  m_TagString: PlayerBack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
