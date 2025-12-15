@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.EventSystems;
-//using UnityEditor;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -15,12 +13,11 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button _settingsExitButton;
     [SerializeField] private Button _adjustExitButton;
 
-    [SerializeField] private Slider _musicSlider;
-    [SerializeField] private Slider _sfxSlider;
-
     [SerializeField] private Canvas _settingsScreen;
     [SerializeField] private Canvas _adjustScreen;
     [SerializeField] private Canvas _menuScreen;
+
+    [SerializeField] private Slider _sfxSlider;
 
     [SerializeField] private GameObject _camera;
 
@@ -37,7 +34,6 @@ public class MainMenuUI : MonoBehaviour
 
         _settingsExitButton.enabled = false;
         _adjustExitButton.enabled = false;
-        _musicSlider.enabled = false;
         _sfxSlider.enabled = false;
 
         PlayerBehavior.CameraPosition = new Vector3(0, 0.85f, 0.65f);
@@ -76,7 +72,6 @@ public class MainMenuUI : MonoBehaviour
         SwitchScreen(_settingsScreen);
         
         _settingsExitButton.enabled = !_settingsExitButton.enabled;
-        _musicSlider.enabled = !_musicSlider.enabled;
         _sfxSlider.enabled = !_sfxSlider.enabled;
 
         if (_menuScreen.enabled)
@@ -90,7 +85,6 @@ public class MainMenuUI : MonoBehaviour
     }
     private void QuitGame()
     {
-        //EditorApplication.isPlaying = false;
         Application.Quit();
     }
     private void SwitchScreen(Canvas screen)
@@ -108,5 +102,9 @@ public class MainMenuUI : MonoBehaviour
         _newGameButton.interactable = false;
         yield return new WaitForSeconds(0.5f);
         _newGameButton.interactable = true;
+    }
+    public void SliderValueChanged()
+    {
+        PlayerBehavior.Volume = _sfxSlider.value / 100;
     }
 }

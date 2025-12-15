@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIBehavior : MonoBehaviour
+public class PauseUI : MonoBehaviour
 {
     [SerializeField] private Canvas _pauseScreen;
     [SerializeField] private Canvas _hudScreen;

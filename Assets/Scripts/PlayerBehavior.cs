@@ -10,7 +10,8 @@ public class PlayerBehavior : MonoBehaviour
 
     private static int _playerHP;
     private static int _colectibleCount;
-    
+
+    public static float Volume;
     public static Vector3 CameraPosition;
 
     public static bool WeaponsDamaged;
@@ -41,6 +42,10 @@ public class PlayerBehavior : MonoBehaviour
         CollectibleCount = 0;
         PlayerHP = 100;
         _camera.transform.localPosition = CameraPosition;
+        foreach (AudioSource audSrc in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            audSrc.volume = Volume;
+        }    
     }
     private void OnTriggerEnter(Collider other)
     {
