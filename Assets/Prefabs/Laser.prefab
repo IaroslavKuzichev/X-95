@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionPrefab: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
+  _shockwavePrefab: {fileID: 5662903136986753064, guid: d759124999cc6ab40819e7b886020040, type: 3}
 --- !u!1 &266523779514995683
 GameObject:
   m_ObjectHideFlags: 0

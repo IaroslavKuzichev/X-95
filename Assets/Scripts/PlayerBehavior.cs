@@ -21,9 +21,18 @@ public class PlayerBehavior : MonoBehaviour
         get => _playerHP;
         set
         {
-            if (value < 0) _playerHP = 0;
-            else if (value > 100) _playerHP = 100;
-            else _playerHP = value;
+            if (value < 0)
+            {
+                _playerHP = 0;
+            }
+            else if (value > 100)
+            {
+                _playerHP = 100;
+            }
+            else
+            {
+                _playerHP = value;
+            }
         }
     }
     public static int CollectibleCount
@@ -31,8 +40,14 @@ public class PlayerBehavior : MonoBehaviour
         get => _colectibleCount;
         set
         {
-            if (value < 0) _colectibleCount = 0;
-            else _colectibleCount = value;
+            if (value < 0)
+            {
+                _colectibleCount = 0;
+            }
+            else
+            {
+                _colectibleCount = value;
+            }
         }
     }
     private void Start()
