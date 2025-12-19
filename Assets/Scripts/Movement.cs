@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     {
         input = new CustomInput();
         rb = GetComponent<Rigidbody>();
-        if (gameObject.scene.name == "MainMenu" || gameObject.scene.name == "FinishScene")
+        if (!gameObject.scene.name.StartsWith("L"))
         {
             PlayerSpeed = 0;
         }
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             _joystick.gameObject.transform.localRotation = Quaternion.Euler(-playerVertical.y * 15f + 45, 0, -playerMove.x * 20f);
             if (Math.Abs(playerTurn.x) > 0f)
             {
-                transform.Rotate(0, playerTurn.x * 0.5f, 0);
+                transform.Rotate(0, playerTurn.x * PlayerSpeed * 0.05f, 0);
             }
 
             if (rb.linearVelocity.x > 0.2f || rb.linearVelocity.y > 0.2f || rb.linearVelocity.z > 0.2f)

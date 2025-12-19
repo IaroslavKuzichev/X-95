@@ -13,8 +13,7 @@ public class WeaponSystems: MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _torpedoText;
     [SerializeField] private TextMeshProUGUI _laserText;
-    [SerializeField] private TextMeshProUGUI _healthText;
-
+    
     [SerializeField] private AudioSource _laserSource;
     [SerializeField] private AudioSource _torpedoSource;
 
@@ -43,7 +42,7 @@ public class WeaponSystems: MonoBehaviour
     }
     private void Start()
     {
-        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
+        if (gameObject.scene.name.StartsWith("L"))
         {
             Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
             _fireDelay = 1 / _fireRate;
@@ -55,7 +54,7 @@ public class WeaponSystems: MonoBehaviour
     }
     private void Update()
     {
-        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
+        if (gameObject.scene.name.StartsWith("L"))
         {
             if (Movement.input.Controller.Laser.IsPressed())
             {
@@ -80,7 +79,6 @@ public class WeaponSystems: MonoBehaviour
             {
                 _laserText.text = $"Нагрев: {Math.Round(Overheat)}%";
             }
-            _healthText.text = $"Обшивка: {PlayerBehavior.PlayerHP}";
         }
     }
     private void Torpedo()

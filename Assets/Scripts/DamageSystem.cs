@@ -29,6 +29,6 @@ public class DamageSystem : MonoBehaviour
         PlayerBehavior.EnginesDamaged = true;
         yield return new WaitForSeconds(5f);
         PlayerBehavior.EnginesDamaged = false;
-        obj.GetComponentInParent<Movement>().PlayerSpeed = 10f;
+        obj.GetComponentInParent<Movement>().PlayerSpeed = 10;
     }
 }

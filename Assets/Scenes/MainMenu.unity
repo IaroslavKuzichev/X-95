@@ -956,6 +956,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213093588245420993, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_Name
+      value: TorpedoSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391062931387761440, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_Name
+      value: UISource
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417375716281449300, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_Name
+      value: LaserSource
+      objectReference: {fileID: 0}
     - target: {fileID: 6143194370041998905, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

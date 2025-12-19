@@ -24,7 +24,7 @@ public class AsteroidBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             BhapticsLibrary.Play("asteroid_collision");
-            PlayerBehavior.PlayerHP -= 1;
+            PlayerBehavior.PlayerHP -= 5;
         }
     }
     private void Update()

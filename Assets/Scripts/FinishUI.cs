@@ -5,26 +5,45 @@ using UnityEngine.UI;
 
 public class FinishUI : MonoBehaviour
 {
-    [SerializeField] Button _exitButton;
+    [SerializeField] Button _nextButton;
     [SerializeField] Button _restartButton;
+    private string _nextLevel;
     private void Awake()
     {
         StartCoroutine(LoadDelay());
-        _exitButton.onClick.AddListener(ExitGame);
+        _nextButton.onClick.AddListener(NextLevel);
         _restartButton.onClick.AddListener(RestartLevel);
+        switch (PlayerBehavior.CurrentLevel)
+        {
+            case "Level1":
+                _nextLevel = "Level2";
+                break;
+            case "Level2":
+                _nextLevel = "Level3";
+                break;
+            case "Level3":
+                _nextLevel = "Level4";
+                break;
+            case "Level4":
+                _nextLevel = "MainMenu";
+                break;
+            default:
+                _nextLevel = PlayerBehavior.CurrentLevel;
+                break;
+        }
     }
-    private void ExitGame()
+    private void NextLevel()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene(_nextLevel, LoadSceneMode.Single);
     }
     private void RestartLevel()
     {
-        SceneManager.LoadScene("SampleLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene(PlayerBehavior.CurrentLevel, LoadSceneMode.Single);
     }
     private IEnumerator LoadDelay()
     {
-        _exitButton.enabled = false;
+        _nextButton.enabled = false;
         yield return new WaitForSeconds(0.5f);
-        _exitButton.enabled = true;
+        _nextButton.enabled = true;
     }
 }

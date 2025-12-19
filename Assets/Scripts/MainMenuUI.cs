@@ -49,7 +49,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void NewGame()
     {
-        SceneManager.LoadScene("SampleLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
     private void ToggleAdjust()
     {

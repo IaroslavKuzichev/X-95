@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u043F\u0440\u043E\u0439\u0434\u0435\u043D"
+  m_text: "\u0418\u0433\u0440\u0430 \u043E\u043A\u043E\u043D\u0447\u0435\u043D\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89a4f5ba24cde784f9b4ec9777f1f089, type: 2}
   m_sharedMaterial: {fileID: -6365344564178512985, guid: 89a4f5ba24cde784f9b4ec9777f1f089, type: 2}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1383431314}
+  m_FirstSelected: {fileID: 73448319}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &365221741
@@ -989,10 +989,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048425637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d6409a831e6a84788af7c4dcd5ba44, type: 3}
+  m_Script: {fileID: 11500000, guid: c47d67259b6a04c45891f298b509f8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextButton: {fileID: 1383431316}
+  _exitButton: {fileID: 1383431316}
   _restartButton: {fileID: 73448321}
 --- !u!1 &1342400876
 GameObject:
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 1383431317}
   - component: {fileID: 1383431316}
   m_Layer: 5
-  m_Name: NextButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0414\u0430\u043B\u0435\u0435"
+  m_text: "\u0412\u044B\u0439\u0442\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89a4f5ba24cde784f9b4ec9777f1f089, type: 2}
   m_sharedMaterial: {fileID: -6365344564178512985, guid: 89a4f5ba24cde784f9b4ec9777f1f089, type: 2}

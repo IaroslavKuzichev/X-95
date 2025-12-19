@@ -7,9 +7,11 @@ public class PauseUI : MonoBehaviour
 {
     [SerializeField] private Canvas _pauseScreen;
     [SerializeField] private Canvas _hudScreen;
+
     [SerializeField] private Button _continueButton;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+
     private EventSystem _eventSystem;
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class PauseUI : MonoBehaviour
     }
     private void Start()
     {
-        if (gameObject.scene.name != "MainMenu" && gameObject.scene.name != "FinishScene")
+        if (gameObject.scene.name.StartsWith("L"))
         {
             _hudScreen.enabled = true;
             Movement.input.UI.Pause.performed += ctx => TogglePause();

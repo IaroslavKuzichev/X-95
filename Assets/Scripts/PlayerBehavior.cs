@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject _camera; 
+
     [SerializeField] private TextMeshProUGUI _weaponText;
     [SerializeField] private TextMeshProUGUI _engineText;
+    [SerializeField] private TextMeshProUGUI _healthText;
 
     private static int _playerHP;
     private static int _colectibleCount;
 
     public static float Volume;
+    public static string CurrentLevel;
     public static Vector3 CameraPosition;
 
     public static bool WeaponsDamaged;
@@ -60,7 +63,11 @@ public class PlayerBehavior : MonoBehaviour
         foreach (AudioSource audSrc in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
         {
             audSrc.volume = Volume;
-        }    
+        }
+        if (gameObject.scene.name.StartsWith("L"))
+        {
+            CurrentLevel = gameObject.scene.name;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -71,6 +78,7 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void Update()
     {
+        _healthText.text = $"Обшивка: {PlayerHP}";
         if (WeaponsDamaged)
         {
             _weaponText.text = "Повреждение орудий";
@@ -87,6 +95,10 @@ public class PlayerBehavior : MonoBehaviour
         else
         {
             _engineText.text = "";
+        }
+        if (PlayerHP <= 0)
+        {
+            SceneManager.LoadScene("DeathScene");
         }
     }
 }
