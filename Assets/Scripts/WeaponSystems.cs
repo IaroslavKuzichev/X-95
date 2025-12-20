@@ -87,6 +87,7 @@ public class WeaponSystems: MonoBehaviour
         {
             _torpedoSource.Play();
             StartCoroutine(Fire(_torpedoPrefab));
+            Movement.rb.AddForce(-_firePoint.up * 500f, ForceMode.Force);
             BhapticsLibrary.Play("torpedo_shot");
             StartCoroutine(TorpedoWait());
             _torpedoCount--;
@@ -119,7 +120,6 @@ public class WeaponSystems: MonoBehaviour
     private IEnumerator TorpedoWait()
     {
         Movement.input.Controller.Torpedo.Disable();
-        Movement.rb.AddForce(-_firePoint.up * 500f, ForceMode.Force);
         yield return new WaitForSeconds(3);
         Movement.input.Controller.Torpedo.Enable();
     }
