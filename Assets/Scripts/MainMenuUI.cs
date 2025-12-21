@@ -21,6 +21,8 @@ public class MainMenuUI : MonoBehaviour
 
     [SerializeField] private GameObject _camera;
 
+    [SerializeField] private AudioSource _uiSource;
+
     private void Awake()
     {
         StartCoroutine(LoadDelay());
@@ -37,6 +39,7 @@ public class MainMenuUI : MonoBehaviour
         _sfxSlider.enabled = false;
 
         PlayerBehavior.CameraPosition = new Vector3(0, 0.85f, 0.65f);
+        PlayerBehavior.Volume = _sfxSlider.value / 100;
     }
     private void Update()
     {
@@ -49,10 +52,12 @@ public class MainMenuUI : MonoBehaviour
     }
     private void NewGame()
     {
+        _uiSource.Play();
         SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
     private void ToggleAdjust()
     {
+        _uiSource.Play();
         SwitchScreen(_adjustScreen);
 
         _adjustExitButton.enabled = !_adjustExitButton.enabled;
@@ -69,6 +74,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void ToggleSettings()
     {
+        _uiSource.Play();
         SwitchScreen(_settingsScreen);
         
         _settingsExitButton.enabled = !_settingsExitButton.enabled;
@@ -85,6 +91,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void QuitGame()
     {
+        _uiSource.Play();
         Application.Quit();
     }
     private void SwitchScreen(Canvas screen)

@@ -7,6 +7,7 @@ public class FinishUI : MonoBehaviour
 {
     [SerializeField] Button _nextButton;
     [SerializeField] Button _restartButton;
+    [SerializeField] private AudioSource _uiSource;
     private string _nextLevel;
     private void Awake()
     {
@@ -34,10 +35,12 @@ public class FinishUI : MonoBehaviour
     }
     private void NextLevel()
     {
+        _uiSource.Play();
         SceneManager.LoadScene(_nextLevel, LoadSceneMode.Single);
     }
     private void RestartLevel()
     {
+        _uiSource.Play();
         SceneManager.LoadScene(PlayerBehavior.CurrentLevel, LoadSceneMode.Single);
     }
     private IEnumerator LoadDelay()

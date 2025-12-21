@@ -12,6 +12,8 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
 
+    [SerializeField] private AudioSource _uiSource;
+
     private EventSystem _eventSystem;
     private void Awake()
     {
@@ -41,12 +43,14 @@ public class PauseUI : MonoBehaviour
         }
         else
         {
+            _uiSource.Play();
             Time.timeScale = 0;
             Movement.input.Controller.Disable();
         }
     }
     private void Continue()
     {
+        _uiSource.Play();
         _pauseScreen.enabled = false;
         _eventSystem.enabled = false;
         Time.timeScale = 1;
@@ -54,11 +58,13 @@ public class PauseUI : MonoBehaviour
     }
     private void Exit()
     {
+        _uiSource.Play();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         Time.timeScale = 1;
     }
     private void Restart()
     {
+        _uiSource.Play();
         Movement.input.Controller.Enable();
         Time.timeScale = 1;
         SceneManager.LoadScene(gameObject.scene.name, LoadSceneMode.Single);

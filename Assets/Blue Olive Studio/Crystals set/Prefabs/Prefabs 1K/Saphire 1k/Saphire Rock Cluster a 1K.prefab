@@ -93,7 +93,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2470118150392128793, guid: 2ff944e62000d1c46acd7a87ac5baeca, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 450d2b826e6b98048a18ad7f2c173966, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ff944e62000d1c46acd7a87ac5baeca, type: 3}
@@ -101,9 +101,9 @@ PrefabInstance:
       value: Crystal Rock Cluster A
       objectReference: {fileID: 0}
     - target: {fileID: 4541392981352650437, guid: 2ff944e62000d1c46acd7a87ac5baeca, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1789cb3d902566248a84ecc69892010e, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b867e4196c8a68478536316d8c39430, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

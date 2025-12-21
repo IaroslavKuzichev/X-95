@@ -912,6 +912,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1096967618474096212, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d639837b213a17848a4814ead1fae51b, type: 3}
     - target: {fileID: 2818012300190486568, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_Name
       value: X-95
@@ -968,6 +972,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserSource
       objectReference: {fileID: 0}
+    - target: {fileID: 3635465545072802618, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: febce0937158dc84f8bad4f16f9ad381, type: 3}
+    - target: {fileID: 4492867431925358051, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6145c8f70a73d18468022dbd1f0153bf, type: 3}
     - target: {fileID: 6143194370041998905, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1421,6 +1433,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738820319}
   m_CullTransparentMesh: 1
+--- !u!82 &780805976 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4492867431925358051, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+  m_PrefabInstance: {fileID: 460668529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &804819658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1898,7 @@ MonoBehaviour:
   _menuScreen: {fileID: 1048425642}
   _sfxSlider: {fileID: 914904228}
   _camera: {fileID: 1912644216}
+  _uiSource: {fileID: 780805976}
 --- !u!1 &1066891310
 GameObject:
   m_ObjectHideFlags: 0

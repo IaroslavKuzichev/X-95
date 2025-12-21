@@ -93,13 +93,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5517641507089533815, guid: d69431b4ee063c740982a20e8182c87c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 1789cb3d902566248a84ecc69892010e, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b867e4196c8a68478536316d8c39430, type: 2}
     - target: {fileID: -3128087354937239198, guid: d69431b4ee063c740982a20e8182c87c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: acd8efc0f84a36845bd194e4f04cbe04, type: 2}
+      objectReference: {fileID: 2100000, guid: 85fb299f0ff516f4fa6c93016ef58ca5, type: 2}
     - target: {fileID: 919132149155446097, guid: d69431b4ee063c740982a20e8182c87c, type: 3}
       propertyPath: m_Name
       value: Crystal Rock Cluster B

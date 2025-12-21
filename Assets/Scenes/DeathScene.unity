@@ -672,6 +672,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+--- !u!82 &460668530 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4492867431925358051, guid: 87e59f8e67f29e64797621e64175a796, type: 3}
+  m_PrefabInstance: {fileID: 460668529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &622417783
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +877,7 @@ GameObject:
   - component: {fileID: 1048425639}
   - component: {fileID: 1048425643}
   m_Layer: 5
-  m_Name: FinishCanvas
+  m_Name: DeathCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,6 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _exitButton: {fileID: 1383431316}
   _restartButton: {fileID: 73448321}
+  _uiSource: {fileID: 460668530}
 --- !u!1 &1342400876
 GameObject:
   m_ObjectHideFlags: 0

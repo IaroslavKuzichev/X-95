@@ -10,6 +10,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _engineText;
     [SerializeField] private TextMeshProUGUI _healthText;
 
+    private int _maxCollectibles;
+
     private static int _playerHP;
     private static int _colectibleCount;
 
@@ -68,10 +70,28 @@ public class PlayerBehavior : MonoBehaviour
         {
             CurrentLevel = gameObject.scene.name;
         }
+        switch (CurrentLevel)
+        {
+            case "Level1":
+                _maxCollectibles = 2;
+                break;
+            case "Level2":
+                _maxCollectibles = 4;
+                break;
+            case "Level3":
+                _maxCollectibles = 6;
+                break;
+            case "Level4":
+                _maxCollectibles = 8;
+                break;
+            default:
+                _maxCollectibles = 100;
+                break;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Finish") && CollectibleCount == 2)
+        if (other.gameObject.CompareTag("Finish") && CollectibleCount == _maxCollectibles)
         {
             SceneManager.LoadScene("FinishScene");
         }

@@ -46,7 +46,7 @@ public class WeaponSystems: MonoBehaviour
         {
             Movement.input.Controller.Torpedo.performed += ctx => Torpedo();
             _fireDelay = 1 / _fireRate;
-            _torpedoCount = 5;
+            _torpedoCount = 3;
             _torpedoText.text = $"Торпеды: {_torpedoCount}";
             Overheat = 0;
             _isOverheated = false;

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
@@ -18,9 +19,11 @@ public class DamageSystem : MonoBehaviour
     private IEnumerator WeaponDamage(GameObject obj)
     {
         obj.GetComponentInParent<WeaponSystems>().enabled = false;
+        Movement.input.Controller.Torpedo.Disable();
         PlayerBehavior.WeaponsDamaged = true;
         yield return new WaitForSeconds(5f);
         PlayerBehavior.WeaponsDamaged = false;
+        Movement.input.Controller.Torpedo.Enable();
         obj.GetComponentInParent<WeaponSystems>().enabled = true;
     }
     private IEnumerator EngineDamage(GameObject obj)
@@ -30,5 +33,15 @@ public class DamageSystem : MonoBehaviour
         yield return new WaitForSeconds(5f);
         PlayerBehavior.EnginesDamaged = false;
         obj.GetComponentInParent<Movement>().PlayerSpeed = 10;
+    }
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+        GameObject obj = FindAnyObjectByType<XROrigin>().gameObject;
+        obj.GetComponent<Movement>().PlayerSpeed = 10;
+        Movement.input.Controller.Torpedo.Enable();
+        obj.GetComponentInParent<WeaponSystems>().enabled = true;
+        PlayerBehavior.WeaponsDamaged = false;
+        PlayerBehavior.EnginesDamaged = false;
     }
 }

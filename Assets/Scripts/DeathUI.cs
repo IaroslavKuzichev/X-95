@@ -7,6 +7,7 @@ public class DeathUI : MonoBehaviour
 {
     [SerializeField] Button _exitButton;
     [SerializeField] Button _restartButton;
+    [SerializeField] private AudioSource _uiSource;
     private void Awake()
     {
         StartCoroutine(LoadDelay());
@@ -15,10 +16,12 @@ public class DeathUI : MonoBehaviour
     }
     private void ExitGame()
     {
+        _uiSource.Play();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     private void RestartLevel()
     {
+        _uiSource.Play();
         SceneManager.LoadScene(PlayerBehavior.CurrentLevel, LoadSceneMode.Single);
     }
     private IEnumerator LoadDelay()

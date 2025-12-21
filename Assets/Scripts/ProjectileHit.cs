@@ -23,7 +23,7 @@ public class ProjectileHit : MonoBehaviour
     private IEnumerator Explosion(Transform parent)
     {
         GameObject explosion = Instantiate(_explosionPrefab, parent.position, parent.rotation);
-        GameObject shockwave = Instantiate(_shockwavePrefab, parent.position, parent.rotation);
+        GameObject shockwave = Instantiate(_shockwavePrefab, explosion.transform);
         Destroy(parent.gameObject); 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponentInChildren<Collider>().enabled = false;
