@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
 {
+    private GameObject _ship;
+    private void Start()
+    {
+        _ship = FindAnyObjectByType<XROrigin>().gameObject;
+    }
     private void OnTriggerEnter(Collider other)
     {
         GameObject target = other.gameObject;
@@ -37,11 +42,13 @@ public class DamageSystem : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
-        GameObject obj = FindAnyObjectByType<XROrigin>().gameObject;
-        obj.GetComponent<Movement>().PlayerSpeed = 10;
-        Movement.input.Controller.Torpedo.Enable();
-        obj.GetComponentInParent<WeaponSystems>().enabled = true;
-        PlayerBehavior.WeaponsDamaged = false;
-        PlayerBehavior.EnginesDamaged = false;
+        if (_ship != null)
+        {
+            _ship.GetComponent<Movement>().PlayerSpeed = 10;
+            Movement.input.Controller.Torpedo.Enable();
+            _ship.GetComponentInParent<WeaponSystems>().enabled = true;
+            PlayerBehavior.WeaponsDamaged = false;
+            PlayerBehavior.EnginesDamaged = false;
+        }
     }
 }

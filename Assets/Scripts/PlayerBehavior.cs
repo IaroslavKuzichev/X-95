@@ -121,4 +121,9 @@ public class PlayerBehavior : MonoBehaviour
             SceneManager.LoadScene("DeathScene");
         }
     }
+    private void OnDestroy()
+    {
+        WeaponsDamaged = false;
+        EnginesDamaged = false;
+    }
 }

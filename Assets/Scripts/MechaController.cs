@@ -31,8 +31,8 @@ public class MechaController : MonoBehaviour
         Vector3 a = ((currentVelocity - prevVelocity) / Time.fixedDeltaTime).Abs();
         acceleration = new Vector3(a.x * currentVelocity.normalized.x, a.y * currentVelocity.normalized.y, a.z * currentVelocity.normalized.z);
         currentAcceleration = Vector3.Lerp(currentAcceleration, acceleration, 0.015f);
-        Controller.Pitch = (-currentAcceleration.z + currentAcceleration.y) * 5f;
-        Controller.Roll = (currentAcceleration.x * 0.5f + Movement.playerTurn.x * 2f) * 5f;
+        Controller.Pitch = -(currentAcceleration.z + currentAcceleration.y) * 7.5f;
+        Controller.Roll = (currentAcceleration.x + Movement.playerTurn.x) * 7.5f;
         prevVelocity = currentVelocity;
     }
     private void OnEnable()
