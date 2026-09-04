@@ -1,2 +1,2 @@
 # MRProject
-My mixed reality project for university
+My mixed reality game for university made in Unity
